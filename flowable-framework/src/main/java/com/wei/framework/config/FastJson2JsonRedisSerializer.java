@@ -52,11 +52,7 @@ public class FastJson2JsonRedisSerializer<T> implements RedisSerializer<T> {
             return null;
         }
         String str = new String(bytes, DEFAULT_CHARSET);
-        if (autoTypeFilter != null) {
-            return JSON.parseObject(str, clazz, autoTypeFilter);
-        } else {
-            return JSON.parseObject(str, clazz, JSONReader.Feature.SupportAutoType);
-        }
+        return JSON.parseObject(str, clazz, autoTypeFilter, JSONReader.Feature.SupportAutoType);
     }
 
     public void setObjectMapper(ObjectMapper objectMapper) {
