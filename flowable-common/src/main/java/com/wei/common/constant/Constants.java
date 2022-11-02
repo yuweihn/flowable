@@ -147,4 +147,9 @@ public class Constants {
      * 当前最大实施启动编号
      */
     public static final String SYS_CONFIG_KEY_MAX_IMPL_INDEX = "sys.%s.max.impl.index";
+
+    /**
+     * 默认缓存时间，1天
+     */
+    public static final long DEFUALT_TIMEOUT = 24 * 60 * 60;
 }

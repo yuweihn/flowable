@@ -24,7 +24,7 @@ import java.util.List;
  *
  * @author ruoyi
  */
-@Configuration
+//@Configuration
 @EnableCaching
 public class RedisConfig extends CachingConfigurerSupport {
     @Bean

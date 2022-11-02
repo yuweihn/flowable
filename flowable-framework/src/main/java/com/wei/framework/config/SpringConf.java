@@ -1,10 +1,9 @@
 package com.wei.framework.config;
 
 
-import com.wei.common.core.redis.RedisCache;
 import com.wei.common.utils.WechatUtil;
 import com.yuweix.assist4j.core.cloud.CosUtil;
-import org.springframework.beans.factory.annotation.Qualifier;
+import com.yuweix.assist4j.data.cache.Cache;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -25,7 +24,7 @@ public class SpringConf {
     }
 
     @Bean(name = "wechatUtil")
-    public WechatUtil wechatUtil(@Qualifier("redisCache") RedisCache cache) {
+    public WechatUtil wechatUtil(Cache cache) {
         try {
             Class<?> clz = Class.forName(WechatUtil.class.getName());
             Constructor<?> constructor = clz.getDeclaredConstructor();

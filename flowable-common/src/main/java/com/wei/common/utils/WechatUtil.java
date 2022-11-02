@@ -2,16 +2,15 @@ package com.wei.common.utils;
 
 
 import com.wei.common.core.domain.model.WechatLoginResult;
-import com.wei.common.core.redis.RedisCache;
 import com.yuweix.assist4j.core.Response;
 import com.yuweix.assist4j.core.encrypt.SecurityUtil;
+import com.yuweix.assist4j.data.cache.Cache;
 import com.yuweix.assist4j.http.HttpMethod;
 import com.yuweix.assist4j.http.request.HttpFormRequest;
 import com.yuweix.assist4j.http.response.HttpResponse;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
 
 
 /**
@@ -20,12 +19,12 @@ import java.util.concurrent.TimeUnit;
 @Slf4j
 public final class WechatUtil {
 	private WechatUtil() {}
-	private static RedisCache CACHE;
+	private static Cache CACHE;
 	
 	private static final String CACHE_ACCESS_TOKEN_KEY = "cache.ags.flowable.wechat.access.token.";
 	
 	
-	public void setCache(RedisCache cache) {
+	public void setCache(Cache cache) {
 		WechatUtil.CACHE = cache;
 	}
 	
@@ -61,7 +60,7 @@ public final class WechatUtil {
 	
 	public static String getAccessToken(String appId, String secret) {
 		String key = CACHE_ACCESS_TOKEN_KEY + SecurityUtil.getMd5(appId + secret);
-		String accessToken = CACHE.getCacheObject(key);
+		String accessToken = CACHE.get(key);
 		if (accessToken != null) {
 			return accessToken;
 		}
@@ -86,7 +85,7 @@ public final class WechatUtil {
 			/**
 			 * 为防止意外，将凭证失效时间设在微信服务器给的失效时间之前5分钟
 			 **/
-			CACHE.setCacheObject(key, accessToken, (int) ((expireIn - 5 * 60) / 60), TimeUnit.MINUTES);
+			CACHE.put(key, accessToken, expireIn - 5 * 60);
 			return accessToken;
 		} catch (Exception e) {
 			log.error("", e);
