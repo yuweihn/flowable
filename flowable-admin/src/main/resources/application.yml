@@ -82,7 +82,7 @@ mybatis:
 
 assist4j.boot.lettuce.enabled: true
 #允许fastjson序列化与反序列化的对象
-fastjson.autoTypes: com.wei.common.core.domain,com.wei.system.domain
+assist4j.boot.json.accept: com.wei.common.core.domain,com.wei.system.domain
 
 # PageHelper分页插件
 pagehelper:
