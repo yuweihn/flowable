@@ -1,1 +1,15 @@
 /flowable-parent.iml
+/flowable/flowable.iml
+/flowable-admin/flowable-admin.iml
+/flowable-common/flowable-common.iml
+/flowable-framework/flowable-framework.iml
+/flowable-generator/flowable-generator.iml
+/flowable-quartz/flowable-quartz.iml
+/flowable-system/flowable-system.iml
+/flowable-system/target/
+/flowable-quartz/target/
+/flowable-generator/target/
+/flowable-framework/target/
+/flowable-common/target/
+/flowable-admin/target/
+/flowable/target/

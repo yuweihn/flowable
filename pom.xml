@@ -46,13 +46,13 @@
     </properties>
 
     <modules>
-        <module>ags-flowable-common</module>
-        <module>ags-flowable-system</module>
-        <module>ags-flowable-framework</module>
-        <module>ags-flowable-generator</module>
-        <module>ags-flowable-quartz</module>
-        <module>ags-flowable</module>
-        <module>ags-flowable-admin</module>
+        <module>flowable-common</module>
+        <module>flowable-system</module>
+        <module>flowable-framework</module>
+        <module>flowable-generator</module>
+        <module>flowable-quartz</module>
+        <module>flowable-admin</module>
+        <module>flowable</module>
     </modules>
 
     <!-- 依赖声明 -->
@@ -207,42 +207,42 @@
             
             <!-- 定时任务-->
             <dependency>
-                <groupId>com.agilenaas</groupId>
-                <artifactId>ags-flowable-quartz</artifactId>
+                <groupId>com.wei</groupId>
+                <artifactId>flowable-quartz</artifactId>
                 <version>${ags.flowable.version}</version>
             </dependency>
 	
             <!-- 代码生成-->
             <dependency>
-                <groupId>com.agilenaas</groupId>
-                <artifactId>ags-flowable-generator</artifactId>
+                <groupId>com.wei</groupId>
+                <artifactId>flowable-generator</artifactId>
                 <version>${ags.flowable.version}</version>
             </dependency>
 			
             <!-- 核心模块-->
             <dependency>
-                <groupId>com.agilenaas</groupId>
-                <artifactId>ags-flowable-framework</artifactId>
+                <groupId>com.wei</groupId>
+                <artifactId>flowable-framework</artifactId>
                 <version>${ags.flowable.version}</version>
             </dependency>
 			
             <!-- 系统模块-->
             <dependency>
-                <groupId>com.agilenaas</groupId>
-                <artifactId>ags-flowable-system</artifactId>
+                <groupId>com.wei</groupId>
+                <artifactId>flowable-system</artifactId>
                 <version>${ags.flowable.version}</version>
             </dependency>
 			
             <!-- 通用工具-->
             <dependency>
-                <groupId>com.agilenaas</groupId>
-                <artifactId>ags-flowable-common</artifactId>
+                <groupId>com.wei</groupId>
+                <artifactId>flowable-common</artifactId>
                 <version>${ags.flowable.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>com.agilenaas</groupId>
-                <artifactId>ags-flowable</artifactId>
+                <groupId>com.wei</groupId>
+                <artifactId>flowable</artifactId>
                 <version>${ags.flowable.version}</version>
             </dependency>
 
