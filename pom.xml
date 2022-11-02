@@ -14,7 +14,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
-        <assist4j.version>1.1.26</assist4j.version>
+        <assist4j.version>1.1.27</assist4j.version>
         <aviator.version>5.3.1</aviator.version>
         <bitwalker.version>1.21</bitwalker.version>
         <commons.collections.version>3.2.2</commons.collections.version>
