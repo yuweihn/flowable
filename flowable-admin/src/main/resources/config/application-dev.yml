@@ -92,7 +92,7 @@ spring:
 
 app:
   # 文件路径
-  profile: /opt/ruoyi/file
+  profile: /opt/flow/file
   # 站点域名
   domain: http://localhost:8080
 

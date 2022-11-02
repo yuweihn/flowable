@@ -92,7 +92,7 @@ spring:
 
 app:
   # 文件路径
-  profile: /opt/ruoyi/file
+  profile: /opt/flow/file
   # 站点域名
   domain: https://flow-api-test.agilenaas.net
 
