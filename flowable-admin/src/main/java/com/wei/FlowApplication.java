@@ -42,7 +42,7 @@ public class FlowApplication {
         initEnvironment(args);
         // System.setProperty("spring.devtools.restart.enabled", "false");
         SpringApplication.run(FlowApplication.class, args);
-        System.out.println("(♥◠‿◠)ﾉﾞ  AGS工作流启动成功   ლ(´ڡ`ლ)ﾞ  \n" +
+        System.out.println("(♥◠‿◠)ﾉﾞ  工作流启动成功   ლ(´ڡ`ლ)ﾞ  \n" +
                 " .-------.       ____     __        \n" +
                 " |  _ _   \\      \\   \\   /  /    \n" +
                 " | ( ' )  |       \\  _. /  '       \n" +
