@@ -18,6 +18,7 @@ import javax.annotation.Resource;
  * @author ruoyi
  **/
 @SuppressWarnings(value = { "unchecked", "rawtypes" })
+@Deprecated
 @Component("rdsCache")
 public class RedisCache {
     @Autowired
