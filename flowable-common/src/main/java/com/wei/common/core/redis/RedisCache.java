@@ -5,6 +5,7 @@ import java.util.Collection;
 import com.wei.common.constant.Constants;
 import com.yuweix.assist4j.data.cache.Cache;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
 
@@ -20,6 +21,7 @@ import javax.annotation.Resource;
 @Component("rdsCache")
 public class RedisCache {
     @Autowired
+    @Qualifier("redisTemplate")
     public RedisTemplate rdsTemplate;
     @Resource
     public Cache cache;
