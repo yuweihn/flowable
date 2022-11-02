@@ -80,6 +80,9 @@ mybatis:
   # 加载全局的配置文件
   configLocation: classpath:mybatis/mybatis-config.xml
 
+#允许fastjson序列化与反序列化的对象
+fastjson.autoTypes: com.wei.common.core.domain,com.wei.system.domain
+
 # PageHelper分页插件
 pagehelper:
   helperDialect: mysql

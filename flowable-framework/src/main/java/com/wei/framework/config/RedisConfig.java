@@ -1,5 +1,7 @@
 package com.wei.framework.config;
 
+
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.annotation.CachingConfigurerSupport;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
@@ -13,23 +15,34 @@ import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.jsontype.impl.LaissezFaireSubTypeValidator;
 
+import java.util.ArrayList;
+import java.util.List;
+
+
 /**
  * redis配置
- * 
+ *
  * @author ruoyi
  */
 @Configuration
 @EnableCaching
-public class RedisConfig extends CachingConfigurerSupport
-{
+public class RedisConfig extends CachingConfigurerSupport {
     @Bean
     @SuppressWarnings(value = { "unchecked", "rawtypes" })
-    public RedisTemplate<Object, Object> redisTemplate(RedisConnectionFactory connectionFactory)
-    {
+    public RedisTemplate<Object, Object> redisTemplate(RedisConnectionFactory connectionFactory, @Value("${fastjson.autoTypes:}")String autoTypes) {
         RedisTemplate<Object, Object> template = new RedisTemplate<>();
         template.setConnectionFactory(connectionFactory);
 
-        FastJson2JsonRedisSerializer serializer = new FastJson2JsonRedisSerializer(Object.class);
+        List<String> autoTypeList = new ArrayList<>();
+        if (autoTypes != null && !"".equals(autoTypes.trim())) {
+            String[] arr = autoTypes.trim().split(",");
+            for (String str: arr) {
+                if (str != null && !"".equals(str.trim())) {
+                    autoTypeList.add(str.trim());
+                }
+            }
+        }
+        FastJson2JsonRedisSerializer serializer = new FastJson2JsonRedisSerializer(Object.class, autoTypeList);
 
         ObjectMapper mapper = new ObjectMapper();
         mapper.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);
