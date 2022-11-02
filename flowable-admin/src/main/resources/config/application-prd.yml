@@ -1,3 +1,9 @@
+server:
+  port: 8080
+  #  sessionTimeout: 30
+  servlet:
+    context-path: /
+
 # 数据源配置
 spring:
   datasource:
