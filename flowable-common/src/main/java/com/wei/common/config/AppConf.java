@@ -11,8 +11,8 @@ import org.springframework.stereotype.Component;
  * @author ruoyi
  */
 @Component
-@ConfigurationProperties(prefix = "ruoyi")
-public class RuoYiConfig {
+@ConfigurationProperties(prefix = "app")
+public class AppConf {
     /** 项目名称 */
     private String name;
 
@@ -81,7 +81,7 @@ public class RuoYiConfig {
 
     public void setProfile(String profile)
     {
-        RuoYiConfig.profile = profile;
+        AppConf.profile = profile;
     }
 
     public static String getDomain() {
@@ -89,7 +89,7 @@ public class RuoYiConfig {
     }
 
     public void setDomain(String domain) {
-        RuoYiConfig.domain = domain;
+        AppConf.domain = domain;
     }
 
     public static boolean isAddressEnabled() {
@@ -97,7 +97,7 @@ public class RuoYiConfig {
     }
 
     public void setAddressEnabled(boolean addressEnabled) {
-        RuoYiConfig.addressEnabled = addressEnabled;
+        AppConf.addressEnabled = addressEnabled;
     }
 
     /**

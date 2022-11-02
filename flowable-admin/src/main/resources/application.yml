@@ -1,7 +1,7 @@
 # 项目相关配置
-ruoyi:
+app:
   # 名称
-  name: AGS工作流
+  name: 工作流平台
   # 版本
   version: 1.0.0
   # 版权年份

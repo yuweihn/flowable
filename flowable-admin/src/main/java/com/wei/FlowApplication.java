@@ -30,7 +30,7 @@ public class FlowApplication {
     private static final String ENV_KEY = "env";
     private static final String PROFILE_KEY = "profile";
 
-    @Value("${ruoyi.name:}")
+    @Value("${app.name:}")
     private String appName;
     @Value("${spring.profiles.active:}")
     private String env;

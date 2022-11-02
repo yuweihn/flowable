@@ -20,5 +20,5 @@
 //      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^           //
 ////////////////////////////////////////////////////////////////////
 :: JDK ::                    (${java.version})
-:: Application Version ::    (${ruoyi.version})
+:: Application Version ::    (${app.version})
 :: Spring Boot ::            (${spring-boot.version})

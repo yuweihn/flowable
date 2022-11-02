@@ -14,7 +14,7 @@ import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import com.wei.common.config.RuoYiConfig;
+import com.wei.common.config.AppConf;
 import com.wei.common.constant.Constants;
 import com.wei.framework.interceptor.RepeatSubmitInterceptor;
 
@@ -38,7 +38,7 @@ public class SpringMvcConf implements WebMvcConfigurer {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         /** 本地文件上传路径 */
-        registry.addResourceHandler(Constants.RESOURCE_PREFIX + "/**").addResourceLocations("file:" + RuoYiConfig.getProfile() + "/");
+        registry.addResourceHandler(Constants.RESOURCE_PREFIX + "/**").addResourceLocations("file:" + AppConf.getProfile() + "/");
 
         /** swagger配置 */
         registry.addResourceHandler("swagger-ui.html").addResourceLocations("classpath:/META-INF/resources/");

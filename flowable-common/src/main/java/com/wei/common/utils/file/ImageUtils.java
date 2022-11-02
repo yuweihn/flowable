@@ -10,7 +10,7 @@ import java.util.Arrays;
 import org.apache.poi.util.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import com.wei.common.config.RuoYiConfig;
+import com.wei.common.config.AppConf;
 import com.wei.common.constant.Constants;
 import com.wei.common.utils.StringUtils;
 
@@ -81,7 +81,7 @@ public class ImageUtils
             else
             {
                 // 本机地址
-                String localPath = RuoYiConfig.getProfile();
+                String localPath = AppConf.getProfile();
                 String downloadPath = localPath + StringUtils.substringAfter(url, Constants.RESOURCE_PREFIX);
                 in = new FileInputStream(downloadPath);
             }

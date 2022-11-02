@@ -4,7 +4,6 @@ package com.wei.web.controller.system;
 import java.io.IOException;
 import java.util.UUID;
 
-import com.wei.common.constant.HttpStatus;
 import com.wei.system.domain.vo.FileVo;
 import com.wei.system.service.FileService;
 import com.yuweix.assist4j.core.Response;
@@ -12,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import com.wei.common.annotation.Log;
-import com.wei.common.config.RuoYiConfig;
 import com.wei.common.core.controller.BaseController;
 import com.wei.common.core.domain.AjaxResult;
 import com.wei.common.core.domain.entity.SysUser;
@@ -20,7 +18,6 @@ import com.wei.common.core.domain.model.LoginUser;
 import com.wei.common.enums.BusinessType;
 import com.wei.common.utils.SecurityUtils;
 import com.wei.common.utils.ServletUtils;
-import com.wei.common.utils.file.FileUploadUtils;
 import com.wei.framework.web.service.TokenService;
 import com.wei.system.service.ISysUserService;
 
@@ -131,7 +128,6 @@ public class SysProfileController extends BaseController {
         }
 
         LoginUser loginUser = tokenService.getLoginUser(ServletUtils.getRequest());
-//            String avatar = FileUploadUtils.upload(RuoYiConfig.getAvatarPath(), file);
         if (userService.updateUserAvatar(loginUser.getUsername(), avatar)) {
             AjaxResult ajax = AjaxResult.success();
             ajax.put("imgUrl", avatar);

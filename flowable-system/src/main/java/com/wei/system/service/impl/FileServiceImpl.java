@@ -2,7 +2,7 @@ package com.wei.system.service.impl;
 
 
 import cn.hutool.core.io.FileUtil;
-import com.wei.common.config.RuoYiConfig;
+import com.wei.common.config.AppConf;
 import com.wei.system.domain.vo.FileVo;
 import com.wei.system.service.FileService;
 import com.yuweix.assist4j.core.DateUtil;
@@ -44,7 +44,7 @@ public class FileServiceImpl implements FileService {
 		
 		String key = subDir + DateUtil.formatDate(new Date(), "yyyy/MM/dd") + "/" + fileName;
 		String url = cosUtil.uploadFile(fileData, key);
-		String url2 = RuoYiConfig.getDomain() + "/file/download?key=" + key + "&fileName=" + originFileName;
+		String url2 = AppConf.getDomain() + "/file/download?key=" + key + "&fileName=" + originFileName;
 		FileVo fileVo = FileVo.builder().fileName(originFileName).key(key).url(url).url2(url2).build();
 		log.info("Upload end...");
 		return Response.create(true, "ok", fileVo);

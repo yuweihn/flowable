@@ -1,21 +1,9 @@
 package com.wei.web.controller.common;
 
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.multipart.MultipartFile;
-import com.wei.common.config.RuoYiConfig;
-import com.wei.common.constant.Constants;
-import com.wei.common.core.domain.AjaxResult;
-import com.wei.common.utils.StringUtils;
-import com.wei.common.utils.file.FileUploadUtils;
-import com.wei.common.utils.file.FileUtils;
 
 
 /**
@@ -41,7 +29,7 @@ public class CommonController {
 //                throw new Exception(StringUtils.format("文件名称({})非法，不允许下载。 ", fileName));
 //            }
 //            String realFileName = System.currentTimeMillis() + fileName.substring(fileName.indexOf("_") + 1);
-//            String filePath = RuoYiConfig.getDownloadPath() + fileName;
+//            String filePath = AppConf.getDownloadPath() + fileName;
 //
 //            response.setContentType(MediaType.APPLICATION_OCTET_STREAM_VALUE);
 //            FileUtils.setAttachmentResponseHeader(response, realFileName);
@@ -61,10 +49,10 @@ public class CommonController {
 //    public AjaxResult uploadFile(MultipartFile file) throws Exception {
 //        try {
 //            // 上传文件路径
-//            String filePath = RuoYiConfig.getUploadPath();
+//            String filePath = AppConf.getUploadPath();
 //            // 上传并返回新文件名称
 //            String fileName = FileUploadUtils.upload(filePath, file);
-//            String url = RuoYiConfig.getDomain() + "/" + fileName;
+//            String url = AppConf.getDomain() + "/" + fileName;
 //            AjaxResult ajax = AjaxResult.success();
 //            ajax.put("fileName", fileName);
 //            ajax.put("url", url);
@@ -85,7 +73,7 @@ public class CommonController {
 //                throw new Exception(StringUtils.format("资源文件({})非法，不允许下载。 ", resource));
 //            }
 //            // 本地资源路径
-//            String localPath = RuoYiConfig.getProfile();
+//            String localPath = AppConf.getProfile();
 //            // 数据库资源地址
 //            String downloadPath = localPath + StringUtils.substringAfter(resource, Constants.RESOURCE_PREFIX);
 //            // 下载名称
