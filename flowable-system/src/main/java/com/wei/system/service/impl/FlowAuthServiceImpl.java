@@ -93,7 +93,7 @@ public class FlowAuthServiceImpl implements FlowAuthService {
 		}
 
 		widget = new FlowAuthWidget();
-		widget.setId(seqFlowAuthWidget.nextValue());
+		widget.setId(seqFlowAuthWidget.next());
 		widget.setProcCategory(procCategory);
 		widget.setCode(code);
 		widget.setName(name);
@@ -325,7 +325,7 @@ public class FlowAuthServiceImpl implements FlowAuthService {
 
 	private void createFlowAuthNodeSetting(String procDefId, String nodeKey, String nodeName, FlowAuthNodeSettingRequestVo vo
 			, String creator, Date date) {
-		long settingId = seqFlowAuthNodeSetting.nextValue();
+		long settingId = seqFlowAuthNodeSetting.next();
 		FlowAuthNodeSetting setting = new FlowAuthNodeSetting();
 		setting.setId(settingId);
 		setting.setProcDefId(procDefId);

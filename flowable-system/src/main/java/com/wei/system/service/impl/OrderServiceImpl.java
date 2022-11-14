@@ -94,7 +94,7 @@ public class OrderServiceImpl implements OrderService {
 		 * 订单主体
 		 */
 		order = new Order();
-		long orderId = seqOrder.nextValue();
+		long orderId = seqOrder.next();
 		Date now = new Date();
 		order.setId(orderId);
 		order.setProcInsId(procInsId);
@@ -175,7 +175,7 @@ public class OrderServiceImpl implements OrderService {
 		}
 	}
 	private void createOrderPort(long orderId, OrderVo.Port portVo, String creator, Date createTime) {
-		long orderPortId = seqOrderPort.nextValue();
+		long orderPortId = seqOrderPort.next();
 		OrderPort port = new OrderPort();
 		port.setId(orderPortId);
 		port.setOrderId(orderId);
@@ -205,7 +205,7 @@ public class OrderServiceImpl implements OrderService {
 		}
 	}
 	private void createOrderDevice(long orderId, OrderVo.Device deviceVo, String creator, Date createTime) {
-		long orderDeviceId = seqOrderDevice.nextValue();
+		long orderDeviceId = seqOrderDevice.next();
 		OrderDevice device = new OrderDevice();
 		device.setId(orderDeviceId);
 		device.setOrderId(orderId);
@@ -230,7 +230,7 @@ public class OrderServiceImpl implements OrderService {
 		}
 	}
 	private void createOrderMplsIpsec(long orderId, OrderVo.MplsIpsec mplsIpsecVo, String creator, Date createTime) {
-		long orderMplsIpsecId = seqOrderMplsIpsec.nextValue();
+		long orderMplsIpsecId = seqOrderMplsIpsec.next();
 		OrderMplsIpsec mplsIpsec = new OrderMplsIpsec();
 		mplsIpsec.setId(orderMplsIpsecId);
 		mplsIpsec.setOrderId(orderId);
@@ -262,7 +262,7 @@ public class OrderServiceImpl implements OrderService {
 		}
 	}
 	private void createOrderSpecialLine(long orderId, OrderVo.SpecialLine specialLineVo, String creator, Date createTime) {
-		long orderSpecialLineId = seqOrderSpecialLine.nextValue();
+		long orderSpecialLineId = seqOrderSpecialLine.next();
 		OrderSpecialLine specialLine = new OrderSpecialLine();
 		specialLine.setId(orderSpecialLineId);
 		specialLine.setOrderId(orderId);
@@ -295,7 +295,7 @@ public class OrderServiceImpl implements OrderService {
 		}
 	}
 	private void createOrderInternet(long orderId, OrderVo.Internet internetVo, String creator, Date createTime) {
-		long orderInternetId = seqOrderInternet.nextValue();
+		long orderInternetId = seqOrderInternet.next();
 		OrderInternet internet = new OrderInternet();
 		internet.setId(orderInternetId);
 		internet.setOrderId(orderId);
@@ -328,7 +328,7 @@ public class OrderServiceImpl implements OrderService {
 		}
 	}
 	private void createOrderIdc(long orderId, OrderVo.Idc idcVo, String creator, Date createTime) {
-		long orderIdcId = seqOrderIdc.nextValue();
+		long orderIdcId = seqOrderIdc.next();
 		OrderIdc idc = new OrderIdc();
 		idc.setId(orderIdcId);
 		idc.setOrderId(orderId);
@@ -362,7 +362,7 @@ public class OrderServiceImpl implements OrderService {
 		}
 	}
 	private void createOrderSrv(long orderId, OrderVo.Srv srvVo, String creator, Date createTime) {
-		long orderSrvId = seqOrderSrv.nextValue();
+		long orderSrvId = seqOrderSrv.next();
 		OrderSrv srv = new OrderSrv();
 		srv.setId(orderSrvId);
 		srv.setOrderId(orderId);
@@ -389,7 +389,7 @@ public class OrderServiceImpl implements OrderService {
 		}
 	}
 	private void createOrderIntegration(long orderId, OrderVo.Integration integrationVo, String creator, Date createTime) {
-		long orderIntegrationId = seqOrderIntegration.nextValue();
+		long orderIntegrationId = seqOrderIntegration.next();
 		OrderIntegration integration = new OrderIntegration();
 		integration.setId(orderIntegrationId);
 		integration.setOrderId(orderId);

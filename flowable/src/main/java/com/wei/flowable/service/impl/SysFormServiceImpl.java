@@ -84,7 +84,7 @@ public class SysFormServiceImpl implements ISysFormService {
     @Override
     public long insertSysForm(String formName, byte formType, String formContent, String remark, String accountNo) {
         SysForm frm = new SysForm();
-        frm.setId(seqSysForm.nextValue());
+        frm.setId(seqSysForm.next());
         frm.setFormName(formName == null ? null : formName.trim());
         frm.setFormType(formType);
         frm.setFormContent(formContent == null ? null : formContent.trim());

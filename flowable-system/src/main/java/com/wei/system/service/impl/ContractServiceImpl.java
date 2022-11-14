@@ -72,7 +72,7 @@ public class ContractServiceImpl implements ContractService {
 		 * 合同主体
 		 */
 		contract = new Contract();
-		long contractId = seqContract.nextValue();
+		long contractId = seqContract.next();
 		Date now = new Date();
 		contract.setId(contractId);
 		contract.setProcInsId(procInsId);
@@ -128,7 +128,7 @@ public class ContractServiceImpl implements ContractService {
 		}
 	}
 	private void createContractOrder(long contractId, ContractVo.Order orderVo, String creator, Date createTime) {
-		long contractOrderId = seqContractOrder.nextValue();
+		long contractOrderId = seqContractOrder.next();
 		ContractOrder cOrder = new ContractOrder();
 		cOrder.setId(contractOrderId);
 		cOrder.setContractId(contractId);
@@ -152,7 +152,7 @@ public class ContractServiceImpl implements ContractService {
 		}
 	}
 	private void createContractAttach(long contractId, ContractVo.Attach attach, byte attachType, String creator, Date createTime) {
-		long contractAttachId = seqContractAttach.nextValue();
+		long contractAttachId = seqContractAttach.next();
 		ContractAttach cAttach= new ContractAttach();
 		cAttach.setId(contractAttachId);
 		cAttach.setContractId(contractId);

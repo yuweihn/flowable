@@ -137,7 +137,7 @@ public class SysCustomerServiceImpl implements ISysCustomerService {
             , String fpTitle, String fpBankName, String fpBankAccNo, String fpPhoneNo, String fpTaxNo
             , String fpAddr, Long salesUserId, String remark, String accountNo) {
         SysCustomer c = new SysCustomer();
-        c.setId(seqCustomer.nextValue());
+        c.setId(seqCustomer.next());
         c.setCustomerNo(generateCustomerNo());
         c.setEnterpriseName(enterpriseName);
         c.setContacts(contacts);

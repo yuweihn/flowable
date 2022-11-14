@@ -76,7 +76,7 @@ public class ImplServiceImpl implements ImplService {
 		 * 实施启动单主体
 		 */
 		impl = new Impl();
-		long implId = seqImpl.nextValue();
+		long implId = seqImpl.next();
 		Date now = new Date();
 		impl.setId(implId);
 		impl.setProcInsId(procInsId);
@@ -108,7 +108,7 @@ public class ImplServiceImpl implements ImplService {
 		}
 	}
 	private void createImplOrder(long implId, ImplVo.Order orderVo, String creator, Date createTime) {
-		long implOrderId = seqImplOrder.nextValue();
+		long implOrderId = seqImplOrder.next();
 		ImplOrder iOrder = new ImplOrder();
 		iOrder.setId(implOrderId);
 		iOrder.setImplId(implId);
