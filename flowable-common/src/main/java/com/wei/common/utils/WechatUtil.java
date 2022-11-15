@@ -2,12 +2,12 @@ package com.wei.common.utils;
 
 
 import com.wei.common.core.domain.model.WechatLoginResult;
-import com.yuweix.assist4j.core.Response;
-import com.yuweix.assist4j.core.encrypt.SecurityUtil;
-import com.yuweix.assist4j.data.cache.Cache;
-import com.yuweix.assist4j.http.HttpMethod;
-import com.yuweix.assist4j.http.request.HttpFormRequest;
-import com.yuweix.assist4j.http.response.HttpResponse;
+import com.yuweix.tripod.core.Response;
+import com.yuweix.tripod.core.encrypt.SecurityUtil;
+import com.yuweix.tripod.data.cache.Cache;
+import com.yuweix.tripod.http.HttpMethod;
+import com.yuweix.tripod.http.request.HttpFormRequest;
+import com.yuweix.tripod.http.response.HttpResponse;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.Map;

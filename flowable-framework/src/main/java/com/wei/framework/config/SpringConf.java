@@ -2,8 +2,8 @@ package com.wei.framework.config;
 
 
 import com.wei.common.utils.WechatUtil;
-import com.yuweix.assist4j.core.cloud.CosUtil;
-import com.yuweix.assist4j.data.cache.Cache;
+import com.yuweix.tripod.core.cloud.CosUtil;
+import com.yuweix.tripod.data.cache.Cache;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

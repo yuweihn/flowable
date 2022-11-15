@@ -5,7 +5,7 @@ import com.wei.common.constant.HttpStatus;
 import com.wei.framework.web.service.TokenService;
 import com.wei.system.domain.vo.*;
 import com.wei.system.service.OrderService;
-import com.yuweix.assist4j.core.Response;
+import com.yuweix.tripod.core.Response;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -10,7 +10,7 @@ import com.wei.flowable.domain.vo.FlowTaskVo;
 import com.wei.flowable.domain.vo.UserTaskVo;
 import com.wei.flowable.service.IFlowTaskService;
 import com.wei.system.domain.vo.PageResponseVo;
-import com.yuweix.assist4j.core.Response;
+import com.yuweix.tripod.core.Response;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;

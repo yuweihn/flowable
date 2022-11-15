@@ -2,7 +2,7 @@ package com.wei.common.filter;
 
 
 import com.wei.common.constant.Constants;
-import com.yuweix.assist4j.web.filter.CacheContentHttpFilter;
+import com.yuweix.tripod.web.filter.CacheContentHttpFilter;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.LinkedHashMap;

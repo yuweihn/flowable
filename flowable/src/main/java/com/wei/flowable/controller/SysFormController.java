@@ -12,7 +12,7 @@ import com.wei.flowable.service.ISysDeployFormService;
 import com.wei.system.domain.SysDeployForm;
 import com.wei.system.domain.vo.OptionVo;
 import com.wei.system.domain.vo.PageResponseVo;
-import com.yuweix.assist4j.core.Response;
+import com.yuweix.tripod.core.Response;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,7 +1,7 @@
 package com.wei.common.utils;
 
 
-import com.yuweix.assist4j.core.BeanUtil;
+import com.yuweix.tripod.core.BeanUtil;
 import java.util.List;
 
 

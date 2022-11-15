@@ -110,7 +110,7 @@ app:
   # 站点域名
   domain: https://flow-api.agilenaas.com
 
-assist4j:
+tripod:
   sequence-setting:
     innerStep: 100
     retryTimes: 5

@@ -5,9 +5,9 @@ import cn.hutool.core.io.FileUtil;
 import com.wei.common.config.AppConf;
 import com.wei.system.domain.vo.FileVo;
 import com.wei.system.service.FileService;
-import com.yuweix.assist4j.core.DateUtil;
-import com.yuweix.assist4j.core.Response;
-import com.yuweix.assist4j.core.cloud.CosUtil;
+import com.yuweix.tripod.core.DateUtil;
+import com.yuweix.tripod.core.Response;
+import com.yuweix.tripod.core.cloud.CosUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 

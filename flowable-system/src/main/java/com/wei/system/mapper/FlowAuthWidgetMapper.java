@@ -2,8 +2,8 @@ package com.wei.system.mapper;
 
 
 import com.wei.system.domain.FlowAuthWidget;
-import com.yuweix.assist4j.dao.mybatis.BaseMapper;
-import com.yuweix.assist4j.dao.mybatis.provider.AbstractProvider;
+import com.yuweix.tripod.dao.mybatis.BaseMapper;
+import com.yuweix.tripod.dao.mybatis.provider.AbstractProvider;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.SelectProvider;
 
