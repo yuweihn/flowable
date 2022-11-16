@@ -90,20 +90,6 @@ spring:
 #        # 连接池最大阻塞等待时间（使用负值表示没有限制）
 #        max-wait: -1ms
 
-redis:
-  pool:
-    maxTotal: 1024
-    maxIdle: 10
-    minIdle: 10
-    maxWaitMillis: 10000
-    testOnBorrow: false
-  timeoutMillis: 10000
-  host: redis-test.agilenaas.net
-  port: 6376
-  dbIndex: 1
-  needPassword: true
-  password: ags@2020
-
 app:
   # 文件路径
   profile: /opt/flow/file
@@ -111,14 +97,28 @@ app:
   domain: http://localhost:8080
 
 tripod:
-  sequence-setting:
-    innerStep: 100
-    retryTimes: 5
-    segmentCount: 1
-    maxSkipCount: 5
-    maxWaitMillis: 5000
-    ruleClassName: com.yuweix.tripod.sequence.dao.loadbalancer.RoundRobinRule
-    tableName: sequence
+  sequence:
+    setting:
+      innerStep: 100
+      retryTimes: 5
+      segmentCount: 1
+      maxSkipCount: 5
+      maxWaitMillis: 5000
+      ruleClassName: com.yuweix.tripod.sequence.dao.loadbalancer.RoundRobinRule
+      tableName: sequence
+  redis:
+    pool:
+      maxTotal: 1024
+      maxIdle: 10
+      minIdle: 10
+      maxWaitMillis: 10000
+      testOnBorrow: false
+    timeoutMillis: 10000
+    host: redis-test.agilenaas.net
+    port: 6376
+    dbIndex: 1
+    needPassword: true
+    password: ags@2020
 
 cos:
   secretId: AKIDSplLDTbKvxpTu7evS8ctvgIDwMYano3N

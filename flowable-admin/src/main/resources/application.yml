@@ -80,10 +80,6 @@ mybatis:
   # 加载全局的配置文件
   configLocation: classpath:mybatis/mybatis-config.xml
 
-tripod.boot.lettuce.enabled: true
-#允许fastjson序列化与反序列化的对象
-tripod.boot.json.accept: com.wei.common.core.domain,com.wei.system.domain
-
 # PageHelper分页插件
 pagehelper:
   helperDialect: mysql
@@ -120,26 +116,31 @@ wechat:
 flowable:
   database-schema-update: true
 
+
+tripod.boot.lettuce.enabled: true
+#允许fastjson序列化与反序列化的对象
+tripod.boot.json.accept: com.wei.common.core.domain,com.wei.system.domain
 tripod:
-  sequence-map:
-    seqCustomer: seq_customer
-    seqSysForm: seq_sys_form
-    seqFlowAuthWidget: seq_flow_auth_widget
-    seqFlowAuthNodeSetting: seq_flow_auth_node_setting
-    seqOrder: seq_order
-    seqOrderPort: seq_order_port
-    seqOrderDevice: seq_order_device
-    seqOrderMplsIpsec: seq_order_mpls_ipsec
-    seqOrderSpecialLine: seq_order_special_line
-    seqOrderInternet: seq_order_internet
-    seqOrderIdc: seq_order_idc
-    seqOrderSrv: seq_order_service
-    seqOrderIntegration: seq_order_integration
-    seqContract: seq_contract
-    seqContractOrder: seq_contract_order
-    seqContractAttach: seq_contract_attach
-    seqImpl: seq_impl
-    seqImplOrder: seq_impl_order
-    seqSpSupplier: seq_sp_supplier
-    seqSpRespBill: seq_sp_resp_bill
+  sequence:
+    beans:
+      seqCustomer: seq_customer
+      seqSysForm: seq_sys_form
+      seqFlowAuthWidget: seq_flow_auth_widget
+      seqFlowAuthNodeSetting: seq_flow_auth_node_setting
+      seqOrder: seq_order
+      seqOrderPort: seq_order_port
+      seqOrderDevice: seq_order_device
+      seqOrderMplsIpsec: seq_order_mpls_ipsec
+      seqOrderSpecialLine: seq_order_special_line
+      seqOrderInternet: seq_order_internet
+      seqOrderIdc: seq_order_idc
+      seqOrderSrv: seq_order_service
+      seqOrderIntegration: seq_order_integration
+      seqContract: seq_contract
+      seqContractOrder: seq_contract_order
+      seqContractAttach: seq_contract_attach
+      seqImpl: seq_impl
+      seqImplOrder: seq_impl_order
+      seqSpSupplier: seq_sp_supplier
+      seqSpRespBill: seq_sp_resp_bill
 
