@@ -108,12 +108,13 @@ tripod:
       tableName: sequence
   redis:
     pool:
-      maxTotal: 1024
+      maxTotal: 20
       maxIdle: 10
       minIdle: 10
       maxWaitMillis: 10000
+      timeBetweenEvictionRunsMillis: 200
       testOnBorrow: false
-    timeoutMillis: 10000
+    timeoutMillis: 5000
     host: redis-test.agilenaas.net
     port: 6376
     dbIndex: 1
