@@ -134,9 +134,4 @@ public class MyBatisConfig {
         sessionFactory.setConfigLocation(new DefaultResourceLoader().getResource(configLocation));
         return sessionFactory.getObject();
     }
-
-//    @Bean(name = "basePackage")
-//    public String basePackage() {
-//        return "com.wei.**.mapper**";
-//    }
 }

@@ -118,7 +118,7 @@ flowable:
 
 tripod.boot.lettuce.enabled: true
 #允许fastjson序列化与反序列化的对象
-tripod.boot.json.accept: com.wei.common.core.domain,com.wei.system.domain
+tripod.json.accept: com.wei.common.core.domain,com.wei.system.domain
 tripod:
   sequence:
     beans:

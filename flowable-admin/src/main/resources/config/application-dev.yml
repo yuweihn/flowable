@@ -99,26 +99,26 @@ app:
 tripod:
   sequence:
     setting:
-      innerStep: 100
-      retryTimes: 5
-      segmentCount: 1
-      maxSkipCount: 5
-      maxWaitMillis: 5000
-      ruleClassName: com.yuweix.tripod.sequence.dao.lb.RoundRobinRule
-      tableName: sequence
+      inner-step: 100
+      retry-times: 5
+      segment-count: 1
+      max-skip-count: 5
+      max-wait-millis: 5000
+      rule-class-name: com.yuweix.tripod.sequence.dao.lb.RoundRobinRule
+      table-name: sequence
   redis:
     pool:
-      maxTotal: 20
-      maxIdle: 10
-      minIdle: 10
-      maxWaitMillis: 10000
-      timeBetweenEvictionRunsMillis: 200
-      testOnBorrow: false
-    timeoutMillis: 5000
+      max-total: 20
+      max-idle: 10
+      min-idle: 10
+      max-wait-millis: 10000
+      time-between-eviction-runs-millis: 200
+      test-on-borrow: false
+    timeout-millis: 5000
     host: redis-test.agilenaas.net
     port: 6376
-    dbIndex: 1
-    needPassword: true
+    db-index: 1
+    need-password: true
     password: ags@2020
 
 cos:
