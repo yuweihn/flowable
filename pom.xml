@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -11,10 +11,10 @@
     <description>工作流系统</description>
     
     <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>utf-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
-        <tripod.version>1.0.4</tripod.version>
+        <tripod.version>1.0.5</tripod.version>
         <aviator.version>5.3.1</aviator.version>
         <bitwalker.version>1.21</bitwalker.version>
         <commons.collections.version>3.2.2</commons.collections.version>
@@ -22,7 +22,7 @@
         <commons.io.version>2.5</commons.io.version>
         <druid.version>1.2.15</druid.version>
         <eweb4j.fel.version>0.8</eweb4j.fel.version>
-        <fastjson2.version>2.0.19</fastjson2.version>
+        <fastjson2.version>2.0.21</fastjson2.version>
         <flowable.version>6.7.2</flowable.version>
         <hutool.version>5.8.2</hutool.version>
         <javax.persistence.version>1.0.2</javax.persistence.version>
@@ -31,12 +31,12 @@
         <kaptcha.version>2.3.2</kaptcha.version>
         <maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
         <maven.compiler.version>3.10.1</maven.compiler.version>
-        <mybatis.spring.version>2.2.2</mybatis.spring.version>
+        <mybatis.spring.version>2.3.0</mybatis.spring.version>
         <oshi.version>6.1.6</oshi.version>
         <p6spy.version>3.9.1</p6spy.version>
         <pagehelper.boot.version>1.4.2</pagehelper.boot.version>
         <poi.version>4.1.2</poi.version>
-        <qcloud.cos_api.version>5.6.106</qcloud.cos_api.version>
+        <qcloud.cos_api.version>5.6.117</qcloud.cos_api.version>
         <swagger.version>2.9.2</swagger.version>
         <swagger2.version>1.5.21</swagger2.version>
         <swagger.bootstrap-ui.version>1.9.6</swagger.bootstrap-ui.version>
