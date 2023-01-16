@@ -22,7 +22,7 @@
         <commons.io.version>2.5</commons.io.version>
         <druid.version>1.2.15</druid.version>
         <eweb4j.fel.version>0.8</eweb4j.fel.version>
-        <fastjson2.version>2.0.21</fastjson2.version>
+        <fastjson2.version>2.0.23</fastjson2.version>
         <flowable.version>6.7.2</flowable.version>
         <hutool.version>5.8.2</hutool.version>
         <javax.persistence.version>1.0.2</javax.persistence.version>
@@ -188,6 +188,11 @@
             <dependency>
                 <groupId>com.alibaba.fastjson2</groupId>
                 <artifactId>fastjson2-extension</artifactId>
+                <version>${fastjson2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.fastjson2</groupId>
+                <artifactId>fastjson2-extension-spring5</artifactId>
                 <version>${fastjson2.version}</version>
             </dependency>
 			
