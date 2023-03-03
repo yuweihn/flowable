@@ -50,12 +50,12 @@ public class ContractProcStrategy implements ProcStrategy {
             SysUser sysUser = userService.selectUserById(userId);
             long contractId = contractService.createContract(procInsId, contractVo, userId
                     , sysUser == null ? "User[userId=" + userId + "]" : sysUser.getUserName());
-            return Response.create(true, "ok");
+            return Response.of(true, "ok");
         } catch (Exception e) {
             log.error("", e);
             runtimeService.deleteProcessInstance(procInsId, "");
             historyService.deleteHistoricProcessInstance(procInsId);
-            return Response.create(false, e.getMessage());
+            return Response.of(false, e.getMessage());
         }
     }
 

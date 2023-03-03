@@ -214,7 +214,7 @@ public class FlowTaskController {
             , @RequestParam(value = "targetKey", required = true) String targetKey
             , @RequestParam(value = "comment", required = true) String comment) {
         flowTaskService.taskReturn(taskId, targetKey, comment);
-        return Response.create(HttpStatus.SUCCESS, "ok");
+        return Response.of(HttpStatus.SUCCESS, "ok");
     }
 
     @ApiOperation(value = "获取所有可回退的节点")

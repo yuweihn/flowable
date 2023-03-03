@@ -401,11 +401,11 @@ public class FlowTaskServiceImpl extends FlowServiceFactory implements IFlowTask
     public Response<Integer, UserTaskVo> findReturnTask(String taskId) {
         Response<Integer, List<UserTaskVo>> taskListResp = this.findReturnTaskList(taskId);
         if (HttpStatus.SUCCESS != taskListResp.getCode()) {
-            return Response.create(taskListResp.getCode(), taskListResp.getMsg());
+            return Response.of(taskListResp.getCode(), taskListResp.getMsg());
         }
         List<UserTaskVo> voList = taskListResp.getData();
         if (voList == null || voList.size() <= 0) {
-            return Response.create(HttpStatus.ERROR, "无可退回节点");
+            return Response.of(HttpStatus.ERROR, "无可退回节点");
         }
 
         TaskInfo taskIns = historyService.createHistoricTaskInstanceQuery().taskId(taskId).finished()
@@ -418,19 +418,19 @@ public class FlowTaskServiceImpl extends FlowServiceFactory implements IFlowTask
         }
         Map<String, Object> procVars = taskIns.getProcessVariables();
         if (procVars == null || procVars.isEmpty()) {
-            return Response.create(HttpStatus.ERROR, "无可退回节点");
+            return Response.of(HttpStatus.ERROR, "无可退回节点");
         }
         String startTaskKey = (String) procVars.get(ProcessConstants.PROCESS_START_TASK_KEY);
         if (startTaskKey == null || "".equals(startTaskKey)) {
-            return Response.create(HttpStatus.ERROR, "无可退回节点");
+            return Response.of(HttpStatus.ERROR, "无可退回节点");
         }
 
         for (UserTaskVo vo: voList) {
             if (startTaskKey.equals(vo.getId())) {
-                return Response.create(HttpStatus.SUCCESS, "ok", vo);
+                return Response.of(HttpStatus.SUCCESS, "ok", vo);
             }
         }
-        return Response.create(HttpStatus.ERROR, "无可退回节点");
+        return Response.of(HttpStatus.ERROR, "无可退回节点");
     }
 
     /**
@@ -596,13 +596,13 @@ public class FlowTaskServiceImpl extends FlowServiceFactory implements IFlowTask
         ProcessInstance processInstance = runtimeService.createProcessInstanceQuery().processInstanceId(procInsId).singleResult();
         BpmnModel bpmnModel = repositoryService.getBpmnModel(processInstance.getProcessDefinitionId());
         if (Objects.isNull(bpmnModel)) {
-            return Response.create(HttpStatus.SUCCESS, "操作成功");
+            return Response.of(HttpStatus.SUCCESS, "操作成功");
         }
 
         Process process = bpmnModel.getMainProcess();
         List<EndEvent> endNodes = process.findFlowElementsOfType(EndEvent.class, false);
         if (CollectionUtils.isEmpty(endNodes)) {
-            return Response.create(HttpStatus.SUCCESS, "操作成功");
+            return Response.of(HttpStatus.SUCCESS, "操作成功");
         }
         Authentication.setAuthenticatedUserId(loginUser.getUserId().toString());
 //                taskService.addComment(task.getId(), processInstance.getProcessInstanceId(), FlowComment.STOP.getType(),
@@ -612,7 +612,7 @@ public class FlowTaskServiceImpl extends FlowServiceFactory implements IFlowTask
         List<String> executionIds = new ArrayList<>();
         executions.forEach(execution -> executionIds.add(execution.getId()));
         runtimeService.createChangeActivityStateBuilder().moveExecutionsToSingleActivityId(executionIds, endId).changeState();
-        return Response.create(HttpStatus.SUCCESS, "操作成功");
+        return Response.of(HttpStatus.SUCCESS, "操作成功");
     }
 
     /**
@@ -904,7 +904,7 @@ public class FlowTaskServiceImpl extends FlowServiceFactory implements IFlowTask
             });
             hisFlowList.add(flowTask);
         }
-        return Response.create(HttpStatus.SUCCESS, "操作成功", hisFlowList);
+        return Response.of(HttpStatus.SUCCESS, "操作成功", hisFlowList);
     }
 
     /**
@@ -914,9 +914,9 @@ public class FlowTaskServiceImpl extends FlowServiceFactory implements IFlowTask
     public Response<Integer, Map<String, Object>> getFlowForm(String deployId) {
         SysForm sysForm = sysInstanceFormService.selectSysDeployFormByDeployId(deployId);
         if (Objects.isNull(sysForm)) {
-            return Response.create(HttpStatus.ERROR, "请先配置流程表单");
+            return Response.of(HttpStatus.ERROR, "请先配置流程表单");
         }
-        return Response.create(HttpStatus.SUCCESS, "操作成功", JSONObject.parseObject(sysForm.getFormContent()));
+        return Response.of(HttpStatus.SUCCESS, "操作成功", JSONObject.parseObject(sysForm.getFormContent()));
     }
 
     /**
@@ -1017,10 +1017,10 @@ public class FlowTaskServiceImpl extends FlowServiceFactory implements IFlowTask
                 .finished().taskId(taskId).singleResult();
         if (Objects.nonNull(hiTaskIns)) {
             Map<String, Object> variables = hiTaskIns.getProcessVariables();
-            return Response.create(HttpStatus.SUCCESS, "操作成功", variables);
+            return Response.of(HttpStatus.SUCCESS, "操作成功", variables);
         }
         Map<String, Object> variables = taskService.getVariables(taskId);
-        return Response.create(HttpStatus.SUCCESS, "操作成功", variables);
+        return Response.of(HttpStatus.SUCCESS, "操作成功", variables);
     }
 
     /**
@@ -1036,15 +1036,15 @@ public class FlowTaskServiceImpl extends FlowServiceFactory implements IFlowTask
             task = taskService.createTaskQuery().taskId(taskId).includeProcessVariables().singleResult();
         }
         if (task == null) {
-            return Response.create(HttpStatus.ERROR, "任务不存在");
+            return Response.of(HttpStatus.ERROR, "任务不存在");
         }
 
         Map<String, Object> variables = task.getProcessVariables();
         if (variables == null) {
-            return Response.create(HttpStatus.SUCCESS, "操作成功", false);
+            return Response.of(HttpStatus.SUCCESS, "操作成功", false);
         }
         Object startTaskKey = variables.get(ProcessConstants.PROCESS_START_TASK_KEY);
-        return Response.create(HttpStatus.SUCCESS, "操作成功", startTaskKey != null && startTaskKey.equals(task.getTaskDefinitionKey()));
+        return Response.of(HttpStatus.SUCCESS, "操作成功", startTaskKey != null && startTaskKey.equals(task.getTaskDefinitionKey()));
     }
 
     /**
@@ -1057,10 +1057,10 @@ public class FlowTaskServiceImpl extends FlowServiceFactory implements IFlowTask
     public Response<Integer, Void> restartTask(String taskId, Map<String, Object> variables) {
         Task task = taskService.createTaskQuery().taskId(taskId).singleResult();
         if (task == null) {
-            return Response.create(HttpStatus.ERROR, "任务不存在");
+            return Response.of(HttpStatus.ERROR, "任务不存在");
         }
         if (task.isSuspended()) {
-            return Response.create(HttpStatus.ERROR, "任务已挂起");
+            return Response.of(HttpStatus.ERROR, "任务已挂起");
         }
 
         SysUser sysUser = SecurityUtils.getLoginUser().getUser();
@@ -1068,7 +1068,7 @@ public class FlowTaskServiceImpl extends FlowServiceFactory implements IFlowTask
         taskService.addComment(taskId, procInsId, FlowComment.NORMAL.getType(), sysUser.getNickName() + "重新发起流程申请");
 //        taskService.setAssignee(taskId, sysUser.getUserId().toString());
         taskService.complete(taskId, variables);
-        return Response.create(HttpStatus.SUCCESS, "流程启动成功");
+        return Response.of(HttpStatus.SUCCESS, "流程启动成功");
     }
 
     /**

@@ -68,7 +68,7 @@ public class ImplServiceImpl implements ImplService {
 		Impl impl = implMapper.queryImplByProcInsId(procInsId);
 		if (impl != null) {
 			implMapper.delete(impl);
-			implOrderMapper.deleteByCriteria(Criteria.create("impl_id", Operator.eq, impl.getId()), ImplOrder.class);
+			implOrderMapper.deleteByCriteria(Criteria.of("impl_id", Operator.eq, impl.getId()), ImplOrder.class);
 		}
 
 		SysUser sysUser = implVo.getPrjManagerId() == null ? null : sysUserService.selectUserById(implVo.getPrjManagerId());
@@ -299,7 +299,7 @@ public class ImplServiceImpl implements ImplService {
 	@Override
 	public void deleteImpl(long implId) {
 		implMapper.deleteByKey(implId,Impl.class);
-		implOrderMapper.deleteByCriteria(Criteria.create("impl_id", Operator.eq, implId), ImplOrder.class);
+		implOrderMapper.deleteByCriteria(Criteria.of("impl_id", Operator.eq, implId), ImplOrder.class);
 	}
 
 	@Override

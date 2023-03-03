@@ -65,8 +65,8 @@ public class ContractServiceImpl implements ContractService {
 		Contract contract = contractMapper.queryContractByProcInsId(procInsId);
 		if (contract != null) {
 			contractMapper.delete(contract);
-			contractOrderMapper.deleteByCriteria(Criteria.create("contract_id", Operator.eq, contract.getId()), ContractOrder.class);
-			contractAttachMapper.deleteByCriteria(Criteria.create("contract_id", Operator.eq, contract.getId()), ContractAttach.class);
+			contractOrderMapper.deleteByCriteria(Criteria.of("contract_id", Operator.eq, contract.getId()), ContractOrder.class);
+			contractAttachMapper.deleteByCriteria(Criteria.of("contract_id", Operator.eq, contract.getId()), ContractAttach.class);
 		}
 		/**
 		 * 合同主体
@@ -394,8 +394,8 @@ public class ContractServiceImpl implements ContractService {
 	@Override
 	public void deleteContract(long contractId) {
 		contractMapper.deleteByKey(contractId, Contract.class);
-		contractAttachMapper.deleteByCriteria(Criteria.create("contract_id", Operator.eq, contractId), ContractAttach.class);
-		contractOrderMapper.deleteByCriteria(Criteria.create("contract_id", Operator.eq, contractId), ContractOrder.class);
+		contractAttachMapper.deleteByCriteria(Criteria.of("contract_id", Operator.eq, contractId), ContractAttach.class);
+		contractOrderMapper.deleteByCriteria(Criteria.of("contract_id", Operator.eq, contractId), ContractOrder.class);
 	}
 
 	@Override

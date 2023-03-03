@@ -156,14 +156,14 @@ public class OrderServiceImpl implements OrderService {
 		return orderId;
 	}
 	private void deleteOrderDetailByOrderId(long orderId) {
-		orderPortMapper.deleteByCriteria(Criteria.create("order_id", Operator.eq, orderId), OrderPort.class);
-		orderDeviceMapper.deleteByCriteria(Criteria.create("order_id", Operator.eq, orderId), OrderDevice.class);
-		orderMplsIpsecMapper.deleteByCriteria(Criteria.create("order_id", Operator.eq, orderId), OrderMplsIpsec.class);
-		orderSpecialLineMapper.deleteByCriteria(Criteria.create("order_id", Operator.eq, orderId), OrderSpecialLine.class);
-		orderInternetMapper.deleteByCriteria(Criteria.create("order_id", Operator.eq, orderId), OrderInternet.class);
-		orderIdcMapper.deleteByCriteria(Criteria.create("order_id", Operator.eq, orderId), OrderIdc.class);
-		orderSrvMapper.deleteByCriteria(Criteria.create("order_id", Operator.eq, orderId), OrderSrv.class);
-		orderIntegrationMapper.deleteByCriteria(Criteria.create("order_id", Operator.eq, orderId), OrderIntegration.class);
+		orderPortMapper.deleteByCriteria(Criteria.of("order_id", Operator.eq, orderId), OrderPort.class);
+		orderDeviceMapper.deleteByCriteria(Criteria.of("order_id", Operator.eq, orderId), OrderDevice.class);
+		orderMplsIpsecMapper.deleteByCriteria(Criteria.of("order_id", Operator.eq, orderId), OrderMplsIpsec.class);
+		orderSpecialLineMapper.deleteByCriteria(Criteria.of("order_id", Operator.eq, orderId), OrderSpecialLine.class);
+		orderInternetMapper.deleteByCriteria(Criteria.of("order_id", Operator.eq, orderId), OrderInternet.class);
+		orderIdcMapper.deleteByCriteria(Criteria.of("order_id", Operator.eq, orderId), OrderIdc.class);
+		orderSrvMapper.deleteByCriteria(Criteria.of("order_id", Operator.eq, orderId), OrderSrv.class);
+		orderIntegrationMapper.deleteByCriteria(Criteria.of("order_id", Operator.eq, orderId), OrderIntegration.class);
 	}
 	private void createOrderPort(long orderId, List<OrderVo.Port> portList, String creator) {
 		if (portList == null || portList.size() <= 0) {

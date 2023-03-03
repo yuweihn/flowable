@@ -47,7 +47,7 @@ public class FileServiceImpl implements FileService {
 		String url2 = AppConf.getDomain() + "/file/download?key=" + key + "&fileName=" + originFileName;
 		FileVo fileVo = FileVo.builder().fileName(originFileName).key(key).url(url).url2(url2).build();
 		log.info("Upload end...");
-		return Response.create(true, "ok", fileVo);
+		return Response.of(true, "ok", fileVo);
 	}
 
 	@Override

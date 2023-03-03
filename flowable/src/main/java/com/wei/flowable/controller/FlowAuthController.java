@@ -46,7 +46,7 @@ public class FlowAuthController {
                 .size(size)
                 .list(list)
                 .build();
-        return Response.create(HttpStatus.SUCCESS, "ok", pageVo);
+        return Response.of(HttpStatus.SUCCESS, "ok", pageVo);
     }
 
     @PreAuthorize("@ss.hasPermi('flow:auth:widget:create')")
@@ -58,7 +58,7 @@ public class FlowAuthController {
             , @RequestParam(value = "name", required = true) String name) {
         String userName = SecurityUtils.getUsername();
         long id = flowAuthService.createFlowAuthWidget(procCategory, code, name, userName);
-        return Response.create(HttpStatus.SUCCESS, "ok", id);
+        return Response.of(HttpStatus.SUCCESS, "ok", id);
     }
 
     @PreAuthorize("@ss.hasPermi('flow:auth:widget:update')")
@@ -71,7 +71,7 @@ public class FlowAuthController {
             , @RequestParam(value = "name", required = true) String name) {
         String userName = SecurityUtils.getUsername();
         flowAuthService.updateFlowAuthWidget(id, procCategory, code, name, userName);
-        return Response.create(HttpStatus.SUCCESS, "ok");
+        return Response.of(HttpStatus.SUCCESS, "ok");
     }
 
     @PreAuthorize("@ss.hasPermi('flow:auth:widget:delete')")
@@ -82,7 +82,7 @@ public class FlowAuthController {
         for (long widgetId: ids) {
             flowAuthService.deleteFlowAuthWidget(widgetId);
         }
-        return Response.create(HttpStatus.SUCCESS, "ok");
+        return Response.of(HttpStatus.SUCCESS, "ok");
     }
 
 //    @PreAuthorize("@ss.hasPermi('flow:auth:node:list')")
@@ -92,7 +92,7 @@ public class FlowAuthController {
     public Response<Integer, List<FlowAuthNodeVo>> queryFlowAuthNodeList(
             @RequestParam(value = "deployId", required = true) String deployId) {
         List<FlowAuthNodeVo> list = flowAuthService.queryFlowAuthNodeList(deployId);
-        return Response.create(HttpStatus.SUCCESS, "ok", list);
+        return Response.of(HttpStatus.SUCCESS, "ok", list);
     }
 
     //    @PreAuthorize("@ss.hasPermi('flow:auth:node:delete')")
@@ -104,7 +104,7 @@ public class FlowAuthController {
         for (String nodeKey: nodeKeys) {
             flowAuthService.deleteFlowAuthNode(procDefId, nodeKey);
         }
-        return Response.create(HttpStatus.SUCCESS, "ok");
+        return Response.of(HttpStatus.SUCCESS, "ok");
     }
 
     //    @PreAuthorize("@ss.hasPermi('flow:auth:node:setting:list')")
@@ -115,7 +115,7 @@ public class FlowAuthController {
             @RequestParam(value = "procDefId", required = true) String procDefId
             , @RequestParam(value = "nodeKey", required = true) String nodeKey) {
         List<FlowAuthNodeSettingVo> list = flowAuthService.queryFlowAuthNodeSettingList(procDefId, nodeKey);
-        return Response.create(HttpStatus.SUCCESS, "ok", list);
+        return Response.of(HttpStatus.SUCCESS, "ok", list);
     }
 
     //    @PreAuthorize("@ss.hasPermi('flow:auth:node:setting:save')")
@@ -126,7 +126,7 @@ public class FlowAuthController {
             , @PathVariable(value = "nodeKey") String nodeKey, @RequestBody List<FlowAuthNodeSettingRequestVo> dataList) {
         String userName = SecurityUtils.getUsername();
         flowAuthService.saveFlowAuthNodeSetting(procDefId, nodeKey, dataList, userName);
-        return Response.create(HttpStatus.SUCCESS, "ok");
+        return Response.of(HttpStatus.SUCCESS, "ok");
     }
 
     //    @PreAuthorize("@ss.hasPermi('flow:auth:node:setting:delete')")
@@ -137,7 +137,7 @@ public class FlowAuthController {
         for (long settingId: ids) {
             flowAuthService.deleteFlowAuthNodeSetting(settingId);
         }
-        return Response.create(HttpStatus.SUCCESS, "ok");
+        return Response.of(HttpStatus.SUCCESS, "ok");
     }
 
     //    @PreAuthorize("@ss.hasPermi('flow:auth:node:task:setting:list')")
@@ -147,7 +147,7 @@ public class FlowAuthController {
     public Response<Integer, List<FlowAuthNodeTaskSettingVo>> queryFlowAuthSettingListByTaskId(
             @RequestParam(value = "taskId", required = true) String taskId) {
         List<FlowAuthNodeTaskSettingVo> list = flowAuthService.queryFlowAuthSettingListByTaskId(taskId);
-        return Response.create(HttpStatus.SUCCESS, "ok", list);
+        return Response.of(HttpStatus.SUCCESS, "ok", list);
     }
 
     @ApiOperation(value = "根据taskId查询起始节点权限列表", notes = "......")
@@ -156,6 +156,6 @@ public class FlowAuthController {
     public Response<Integer, List<FlowAuthNodeTaskSettingVo>> queryStartNodeFlowAuthSettingList(
             @RequestParam(value = "taskId", required = true) String taskId) {
         List<FlowAuthNodeTaskSettingVo> list = flowAuthService.queryStartNodeFlowAuthSettingListByTaskId(taskId);
-        return Response.create(HttpStatus.SUCCESS, "ok", list);
+        return Response.of(HttpStatus.SUCCESS, "ok", list);
     }
 }

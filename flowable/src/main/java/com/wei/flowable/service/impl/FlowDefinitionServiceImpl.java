@@ -203,10 +203,10 @@ public class FlowDefinitionServiceImpl extends FlowServiceFactory implements IFl
         ProcessDefinition procDef = repositoryService.createProcessDefinitionQuery().processDefinitionId(procDefId)
                 .singleResult();
         if (procDef == null) {
-            return Response.create(HttpStatus.ERROR, "流程定义[" + procDefId + "]不存在");
+            return Response.of(HttpStatus.ERROR, "流程定义[" + procDefId + "]不存在");
         }
         if (procDef.isSuspended()) {
-            return Response.create(HttpStatus.ERROR, "流程已被挂起，请先激活流程");
+            return Response.of(HttpStatus.ERROR, "流程已被挂起，请先激活流程");
         }
 //           variables.put("skip", true);
 //           variables.put(ProcessConstants.FLOWABLE_SKIP_EXPRESSION_ENABLED, true);
@@ -226,7 +226,7 @@ public class FlowDefinitionServiceImpl extends FlowServiceFactory implements IFl
         if (procStrategy != null) {
             Response<Boolean, Void> resp = procStrategy.save(procInsId, variables, startUserId);
             if (!resp.getCode()) {
-                return Response.create(HttpStatus.ERROR, resp.getMsg());
+                return Response.of(HttpStatus.ERROR, resp.getMsg());
             }
         }
         // 给第一步申请人节点设置任务执行人和意见 todo:第一个节点不设置为申请人节点有点问题？
@@ -249,7 +249,7 @@ public class FlowDefinitionServiceImpl extends FlowServiceFactory implements IFl
             }
             taskService.complete(task.getId(), variables);
         }
-        return Response.create(HttpStatus.SUCCESS, "流程启动成功");
+        return Response.of(HttpStatus.SUCCESS, "流程启动成功");
     }
 
 

@@ -69,7 +69,7 @@ public class SysFormController extends BaseController {
         List<OptionVo> optionList = new ArrayList<>();
         optionList.add(OptionVo.builder().value("1").label("选项一").build());
         optionList.add(OptionVo.builder().value("2").label("选项二").build());
-        return Response.create(HttpStatus.SUCCESS, "ok", optionList);
+        return Response.of(HttpStatus.SUCCESS, "ok", optionList);
     }
 
     /**
@@ -95,9 +95,9 @@ public class SysFormController extends BaseController {
     public Response<Integer, SysFormDto> getInfo(@PathVariable("formId") long formId) {
         SysFormDto dto = sysFormService.selectSysFormById(formId);
         if (dto == null) {
-            return Response.create(HttpStatus.ERROR, "数据不存在");
+            return Response.of(HttpStatus.ERROR, "数据不存在");
         } else {
-            return Response.create(HttpStatus.SUCCESS, "ok", dto);
+            return Response.of(HttpStatus.SUCCESS, "ok", dto);
         }
     }
 
@@ -115,7 +115,7 @@ public class SysFormController extends BaseController {
         String remark = (String) form.get("remark");
         String userName = SecurityUtils.getUsername();
         long id = sysFormService.insertSysForm(formName, formType, formContent, remark, userName);
-        return Response.create(HttpStatus.SUCCESS, "ok", id);
+        return Response.of(HttpStatus.SUCCESS, "ok", id);
     }
 
     /**
@@ -133,7 +133,7 @@ public class SysFormController extends BaseController {
         String remark = (String) form.get("remark");
         String userName = SecurityUtils.getUsername();
         sysFormService.updateSysForm(id, formName, formType, formContent, remark, userName);
-        return Response.create(HttpStatus.SUCCESS, "ok");
+        return Response.of(HttpStatus.SUCCESS, "ok");
     }
 
     /**
@@ -159,7 +159,7 @@ public class SysFormController extends BaseController {
     public Response<Integer, Void> addDeployForm(@RequestBody SysDeployForm sysDeployForm) {
         int cnt = sysDeployFormService.insertSysDeployForm(sysDeployForm);
         return cnt > 0
-                ? Response.create(HttpStatus.SUCCESS, "ok")
-                : Response.create(HttpStatus.ERROR, "Error") ;
+                ? Response.of(HttpStatus.SUCCESS, "ok")
+                : Response.of(HttpStatus.ERROR, "Error") ;
     }
 }

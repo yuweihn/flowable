@@ -83,9 +83,9 @@ public class FlowDefinitionController {
             @RequestParam(value = "deployId", required = true) String deployId) {
         FlowProcDefDto dto = flowDefinitionService.getProcDefInfoByDeployId(deployId);
         if (dto == null) {
-            return Response.create(HttpStatus.ERROR, "流程定义不存在");
+            return Response.of(HttpStatus.ERROR, "流程定义不存在");
         }
-        return Response.create(HttpStatus.SUCCESS, "ok", dto);
+        return Response.of(HttpStatus.SUCCESS, "ok", dto);
     }
 
 
@@ -167,7 +167,7 @@ public class FlowDefinitionController {
             flowDefinitionService.importFile(name, category, in);
         } catch (Exception e) {
             log.error("保存失败:", e);
-            return Response.create(HttpStatus.ERROR, e.getMessage());
+            return Response.of(HttpStatus.ERROR, e.getMessage());
         } finally {
             try {
                 if (in != null) {
@@ -177,7 +177,7 @@ public class FlowDefinitionController {
                 log.error("关闭输入流出错", e);
             }
         }
-        return Response.create(HttpStatus.SUCCESS, "保存成功");
+        return Response.of(HttpStatus.SUCCESS, "保存成功");
     }
 
 
@@ -229,6 +229,6 @@ public class FlowDefinitionController {
     public Response<Integer, String> getProcDefIdByDeployId(
             @RequestParam(value = "deployId", required = true) String deployId) {
         String procDefId = flowDefinitionService.getProcDefIdByDeployId(deployId);
-        return Response.create(HttpStatus.SUCCESS, "ok", procDefId);
+        return Response.of(HttpStatus.SUCCESS, "ok", procDefId);
     }
 }
