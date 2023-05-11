@@ -1614,8 +1614,8 @@ INSERT INTO `gen_table_column` VALUES ('223', '28', 'avatar', '头像地址', 'v
 INSERT INTO `gen_table_column` VALUES ('224', '28', 'password', '密码', 'varchar(100)', 'String', 'password', '0', '0', null, '1', '1', '1', '1', 'EQ', 'input', '', '10', 'tony', '2021-08-12 15:49:51', '', null);
 INSERT INTO `gen_table_column` VALUES ('225', '28', 'status', '帐号状态（0正常 1停用）', 'char(1)', 'String', 'status', '0', '0', null, '1', '1', '1', '1', 'EQ', 'radio', '', '11', 'tony', '2021-08-12 15:49:51', '', null);
 INSERT INTO `gen_table_column` VALUES ('226', '28', 'del_flag', '删除标志（0代表存在 2代表删除）', 'char(1)', 'String', 'delFlag', '0', '0', null, '1', null, null, null, 'EQ', 'input', '', '12', 'tony', '2021-08-12 15:49:51', '', null);
-INSERT INTO `gen_table_column` VALUES ('227', '28', 'login_ip', '最后登录IP', 'varchar(128)', 'String', 'loginIp', '0', '0', null, '1', '1', '1', '1', 'EQ', 'input', '', '13', 'tony', '2021-08-12 15:49:51', '', null);
-INSERT INTO `gen_table_column` VALUES ('228', '28', 'login_date', '最后登录时间', 'datetime', 'Date', 'loginDate', '0', '0', null, '1', '1', '1', '1', 'EQ', 'datetime', '', '14', 'tony', '2021-08-12 15:49:51', '', null);
+INSERT INTO `gen_table_column` VALUES ('227', '28', 'login_ip', '最近登录IP', 'varchar(128)', 'String', 'loginIp', '0', '0', null, '1', '1', '1', '1', 'EQ', 'input', '', '13', 'tony', '2021-08-12 15:49:51', '', null);
+INSERT INTO `gen_table_column` VALUES ('228', '28', 'login_date', '最近登录时间', 'datetime', 'Date', 'loginDate', '0', '0', null, '1', '1', '1', '1', 'EQ', 'datetime', '', '14', 'tony', '2021-08-12 15:49:51', '', null);
 INSERT INTO `gen_table_column` VALUES ('229', '28', 'create_by', '创建者', 'varchar(64)', 'String', 'createBy', '0', '0', null, '1', null, null, null, 'EQ', 'input', '', '15', 'tony', '2021-08-12 15:49:51', '', null);
 INSERT INTO `gen_table_column` VALUES ('230', '28', 'create_time', '创建时间', 'datetime', 'Date', 'createTime', '0', '0', null, '1', null, null, null, 'EQ', 'datetime', '', '16', 'tony', '2021-08-12 15:49:51', '', null);
 INSERT INTO `gen_table_column` VALUES ('231', '28', 'update_by', '更新者', 'varchar(64)', 'String', 'updateBy', '0', '0', null, '1', '1', null, null, 'EQ', 'input', '', '17', 'tony', '2021-08-12 15:49:51', '', null);
@@ -2445,8 +2445,8 @@ CREATE TABLE `sys_user` (
   `password` varchar(100) DEFAULT '' COMMENT '密码',
   `status` char(1) DEFAULT '0' COMMENT '帐号状态（0正常 1停用）',
   `del_flag` char(1) DEFAULT '0' COMMENT '删除标志（0代表存在 2代表删除）',
-  `login_ip` varchar(128) DEFAULT '' COMMENT '最后登录IP',
-  `login_date` datetime DEFAULT NULL COMMENT '最后登录时间',
+  `login_ip` varchar(128) DEFAULT '' COMMENT '最近登录IP',
+  `login_date` datetime DEFAULT NULL COMMENT '最近登录时间',
   we_com_no                 varchar(100)         null                   comment '企业微信账号',
   `create_by` varchar(64) DEFAULT '' COMMENT '创建者',
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
