@@ -36,7 +36,7 @@
         <p6spy.version>3.9.1</p6spy.version>
         <pagehelper.boot.version>1.4.2</pagehelper.boot.version>
         <poi.version>4.1.2</poi.version>
-        <qcloud.cos_api.version>5.6.139</qcloud.cos_api.version>
+        <qcloud.cos_api.version>5.6.147</qcloud.cos_api.version>
         <swagger.version>2.9.2</swagger.version>
         <swagger2.version>1.5.21</swagger2.version>
         <swagger.bootstrap-ui.version>1.9.6</swagger.bootstrap-ui.version>
