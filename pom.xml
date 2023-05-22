@@ -20,9 +20,9 @@
         <commons.collections.version>3.2.2</commons.collections.version>
         <commons.fileupload.version>1.5</commons.fileupload.version>
         <commons.io.version>2.5</commons.io.version>
-        <druid.version>1.2.17</druid.version>
+        <druid.version>1.2.18</druid.version>
         <eweb4j.fel.version>0.8</eweb4j.fel.version>
-        <fastjson2.version>2.0.28</fastjson2.version>
+        <fastjson2.version>2.0.32</fastjson2.version>
         <flowable.version>6.7.2</flowable.version>
         <hutool.version>5.8.2</hutool.version>
         <javax.persistence.version>1.0.2</javax.persistence.version>
@@ -31,7 +31,7 @@
         <kaptcha.version>2.3.2</kaptcha.version>
         <maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
         <maven.compiler.version>3.10.1</maven.compiler.version>
-        <mybatis.spring.version>2.3.0</mybatis.spring.version>
+        <mybatis.spring.version>2.3.1</mybatis.spring.version>
         <oshi.version>6.1.6</oshi.version>
         <p6spy.version>3.9.1</p6spy.version>
         <pagehelper.boot.version>1.4.2</pagehelper.boot.version>
@@ -40,8 +40,8 @@
         <swagger.version>2.9.2</swagger.version>
         <swagger2.version>1.5.21</swagger2.version>
         <swagger.bootstrap-ui.version>1.9.6</swagger.bootstrap-ui.version>
-        <spring.boot.version>2.7.11</spring.boot.version>
-        <spring.cloud.version>2021.0.6</spring.cloud.version>
+        <spring.boot.version>2.7.12</spring.boot.version>
+        <spring.cloud.version>2021.0.7</spring.cloud.version>
         <velocity.version>1.7</velocity.version>
     </properties>
 
