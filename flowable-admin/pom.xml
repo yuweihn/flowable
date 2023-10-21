@@ -11,7 +11,7 @@
 
     <artifactId>flowable-admin</artifactId>
     <packaging>jar</packaging>
-    <version>${parent.version}</version>
+    <version>${project.parent.version}</version>
 
     <properties>
         <swagger2.version>1.5.21</swagger2.version>
