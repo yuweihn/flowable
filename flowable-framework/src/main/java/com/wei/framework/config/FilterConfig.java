@@ -67,7 +67,7 @@ public class FilterConfig
         WebFilter webFilter = new WebFilter();
         bean.setFilter(webFilter);
         bean.setUrlPatterns(Arrays.asList("/*"));
-        bean.addInitParameter("exclusive", "/static/*, /js/*, *.ico");
+        bean.addInitParameter("exclusive", "/, /static/**, /js/**, /**/*.*");
         return bean;
     }
 }
