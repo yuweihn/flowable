@@ -2,6 +2,7 @@ package com.wei.system.mapper;
 
 
 import com.wei.system.domain.SysForm;
+import com.yuweix.tripod.dao.PersistUtil;
 import com.yuweix.tripod.dao.mybatis.BaseMapper;
 import com.yuweix.tripod.dao.mybatis.provider.AbstractProvider;
 import org.apache.ibatis.annotations.Param;
@@ -28,7 +29,7 @@ public interface SysFormMapper extends BaseMapper<SysForm, Long> {
 
             StringBuilder builder = new StringBuilder("");
             builder.append(" select count(a.id) as cnt ");
-            builder.append(" from ").append(getTableName(SysForm.class)).append(" a ");
+            builder.append(" from ").append(PersistUtil.getTableName(SysForm.class)).append(" a ");
             builder.append(" where 1 = 1 ");
             if (formName != null && !"".equals(formName.trim())) {
                 param.put("formName", "%" + formName.trim() + "%");
@@ -43,8 +44,8 @@ public interface SysFormMapper extends BaseMapper<SysForm, Long> {
             Integer pageSize = (Integer) param.get("pageSize");
 
             StringBuilder builder = new StringBuilder("");
-            builder.append(" select ").append(getAllColumnSql(SysForm.class, "a"));
-            builder.append(" from ").append(getTableName(SysForm.class)).append(" a ");
+            builder.append(" select ").append(PersistUtil.getAllColumnSql(SysForm.class, "a"));
+            builder.append(" from ").append(PersistUtil.getTableName(SysForm.class)).append(" a ");
             builder.append(" where 1 = 1 ");
             if (formName != null && !"".equals(formName.trim())) {
                 param.put("formName", "%" + formName.trim() + "%");

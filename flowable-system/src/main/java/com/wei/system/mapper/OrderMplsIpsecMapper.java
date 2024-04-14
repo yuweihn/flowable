@@ -2,6 +2,7 @@ package com.wei.system.mapper;
 
 
 import com.wei.system.domain.OrderMplsIpsec;
+import com.yuweix.tripod.dao.PersistUtil;
 import com.yuweix.tripod.dao.mybatis.BaseMapper;
 import com.yuweix.tripod.dao.mybatis.provider.AbstractProvider;
 import org.apache.ibatis.annotations.Param;
@@ -26,7 +27,7 @@ public interface OrderMplsIpsecMapper extends BaseMapper<OrderMplsIpsec, Long> {
         public String queryOrderMplsIpsecCount(Map<String, Object> param) {
             StringBuilder builder = new StringBuilder("");
             builder.append(" select count(a.id) as cnt ");
-            builder.append(" from ").append(getTableName(OrderMplsIpsec.class)).append(" a ");
+            builder.append(" from ").append(PersistUtil.getTableName(OrderMplsIpsec.class)).append(" a ");
             builder.append(" where a.order_id = #{orderId} ");
             return builder.toString();
         }
@@ -36,8 +37,8 @@ public interface OrderMplsIpsecMapper extends BaseMapper<OrderMplsIpsec, Long> {
             Integer pageSize = (Integer) param.get("pageSize");
 
             StringBuilder builder = new StringBuilder("");
-            builder.append(" select ").append(getAllColumnSql(OrderMplsIpsec.class, "a"));
-            builder.append(" from ").append(getTableName(OrderMplsIpsec.class)).append(" a ");
+            builder.append(" select ").append(PersistUtil.getAllColumnSql(OrderMplsIpsec.class, "a"));
+            builder.append(" from ").append(PersistUtil.getTableName(OrderMplsIpsec.class)).append(" a ");
             builder.append(" where a.order_id = #{orderId} ");
             builder.append(" order by a.id ");
             if (pageNo != null && pageSize != null) {

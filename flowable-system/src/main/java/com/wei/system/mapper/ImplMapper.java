@@ -2,6 +2,7 @@ package com.wei.system.mapper;
 
 
 import com.wei.system.domain.Impl;
+import com.yuweix.tripod.dao.PersistUtil;
 import com.yuweix.tripod.dao.mybatis.BaseMapper;
 import com.yuweix.tripod.dao.mybatis.provider.AbstractProvider;
 import org.apache.ibatis.annotations.Param;
@@ -33,8 +34,8 @@ public interface ImplMapper extends BaseMapper<Impl, Long> {
     class Provider extends AbstractProvider {
         public String queryImplByProcInsId(Map<String, Object> param) {
             StringBuilder builder = new StringBuilder("");
-            builder.append(" select ").append(getAllColumnSql(Impl.class, "a"));
-            builder.append(" from ").append(getTableName(Impl.class)).append(" a ");
+            builder.append(" select ").append(PersistUtil.getAllColumnSql(Impl.class, "a"));
+            builder.append(" from ").append(PersistUtil.getTableName(Impl.class)).append(" a ");
             builder.append(" where a.proc_ins_id = #{procInsId} ");
             return builder.toString();
         }
@@ -49,7 +50,7 @@ public interface ImplMapper extends BaseMapper<Impl, Long> {
             Date endTime= (Date) param.get("endTime");
             StringBuilder builder = new StringBuilder("");
             builder.append(" select count(a.id) as cnt ");
-            builder.append(" from ").append(getTableName(Impl.class)).append(" a ");
+            builder.append(" from ").append(PersistUtil.getTableName(Impl.class)).append(" a ");
             builder.append(" where 1 = 1 ");
             if (customerNo != null && !"".equals(customerNo.trim())) {
                 param.put("customerNo", customerNo.trim());
@@ -91,8 +92,8 @@ public interface ImplMapper extends BaseMapper<Impl, Long> {
             Integer pageSize = (Integer) param.get("pageSize");
 
             StringBuilder builder = new StringBuilder("");
-            builder.append(" select ").append(getAllColumnSql(Impl.class, "a"));
-            builder.append(" from ").append(getTableName(Impl.class)).append(" a ");
+            builder.append(" select ").append(PersistUtil.getAllColumnSql(Impl.class, "a"));
+            builder.append(" from ").append(PersistUtil.getTableName(Impl.class)).append(" a ");
             builder.append(" where 1 = 1 ");
             if (customerNo != null && !"".equals(customerNo.trim())) {
                 param.put("customerNo", customerNo.trim());

@@ -2,6 +2,7 @@ package com.wei.system.mapper;
 
 
 import com.wei.system.domain.FlowAuthNodeSetting;
+import com.yuweix.tripod.dao.PersistUtil;
 import com.yuweix.tripod.dao.mybatis.BaseMapper;
 import com.yuweix.tripod.dao.mybatis.provider.AbstractProvider;
 import org.apache.ibatis.annotations.Param;
@@ -36,7 +37,7 @@ public interface FlowAuthNodeSettingMapper extends BaseMapper<FlowAuthNodeSettin
         public String queryNodeSettingCount(Map<String, Object> param) {
             StringBuilder builder = new StringBuilder("");
             builder.append(" select count(a.id) as cnt ");
-            builder.append(" from ").append(getTableName(FlowAuthNodeSetting.class)).append(" a ");
+            builder.append(" from ").append(PersistUtil.getTableName(FlowAuthNodeSetting.class)).append(" a ");
             builder.append(" where a.proc_def_id = #{procDefId} and a.node_key = #{nodeKey} ");
             return builder.toString();
         }
@@ -46,8 +47,8 @@ public interface FlowAuthNodeSettingMapper extends BaseMapper<FlowAuthNodeSettin
             Integer pageSize = (Integer) param.get("pageSize");
 
             StringBuilder builder = new StringBuilder("");
-            builder.append(" select ").append(getAllColumnSql(FlowAuthNodeSetting.class, "a"));
-            builder.append(" from ").append(getTableName(FlowAuthNodeSetting.class)).append(" a ");
+            builder.append(" select ").append(PersistUtil.getAllColumnSql(FlowAuthNodeSetting.class, "a"));
+            builder.append(" from ").append(PersistUtil.getTableName(FlowAuthNodeSetting.class)).append(" a ");
             builder.append(" where a.proc_def_id = #{procDefId} and a.node_key = #{nodeKey} ");
             builder.append(" order by a.id desc ");
             if (pageNo != null && pageSize != null) {
@@ -58,8 +59,8 @@ public interface FlowAuthNodeSettingMapper extends BaseMapper<FlowAuthNodeSettin
 
         public String findWNodeSetting(Map<String, Object> param) {
             StringBuilder builder = new StringBuilder("");
-            builder.append(" select ").append(getAllColumnSql(FlowAuthNodeSetting.class, "a"));
-            builder.append(" from ").append(getTableName(FlowAuthNodeSetting.class)).append(" a ");
+            builder.append(" select ").append(PersistUtil.getAllColumnSql(FlowAuthNodeSetting.class, "a"));
+            builder.append(" from ").append(PersistUtil.getTableName(FlowAuthNodeSetting.class)).append(" a ");
             builder.append(" where a.proc_def_id = #{procDefId} and a.node_key = #{nodeKey} and a.auth_widget_id = #{widgetId} ");
             return builder.toString();
         }
@@ -67,7 +68,7 @@ public interface FlowAuthNodeSettingMapper extends BaseMapper<FlowAuthNodeSettin
         public String findNodeKeyListByProcDefId(Map<String, Object> param) {
             StringBuilder builder = new StringBuilder("");
             builder.append(" select distinct node_key ");
-            builder.append(" from ").append(getTableName(FlowAuthNodeSetting.class));
+            builder.append(" from ").append(PersistUtil.getTableName(FlowAuthNodeSetting.class));
             builder.append(" where proc_def_id = #{procDefId} ");
             return builder.toString();
         }
@@ -75,7 +76,7 @@ public interface FlowAuthNodeSettingMapper extends BaseMapper<FlowAuthNodeSettin
         public String deleteFlowAuthNode(Map<String, Object> param) {
             StringBuilder builder = new StringBuilder("");
             builder.append(" delete ");
-            builder.append(" from ").append(getTableName(FlowAuthNodeSetting.class));
+            builder.append(" from ").append(PersistUtil.getTableName(FlowAuthNodeSetting.class));
             builder.append(" where proc_def_id = #{procDefId} and node_key = #{nodeKey} ");
             return builder.toString();
         }

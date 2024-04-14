@@ -2,6 +2,7 @@ package com.wei.system.mapper;
 
 
 import com.wei.system.domain.OrderDevice;
+import com.yuweix.tripod.dao.PersistUtil;
 import com.yuweix.tripod.dao.mybatis.BaseMapper;
 import com.yuweix.tripod.dao.mybatis.provider.AbstractProvider;
 import org.apache.ibatis.annotations.Param;
@@ -26,7 +27,7 @@ public interface OrderDeviceMapper extends BaseMapper<OrderDevice, Long> {
         public String queryOrderDeviceCount(Map<String, Object> param) {
             StringBuilder builder = new StringBuilder("");
             builder.append(" select count(a.id) as cnt ");
-            builder.append(" from ").append(getTableName(OrderDevice.class)).append(" a ");
+            builder.append(" from ").append(PersistUtil.getTableName(OrderDevice.class)).append(" a ");
             builder.append(" where a.order_id = #{orderId} ");
             return builder.toString();
         }
@@ -36,8 +37,8 @@ public interface OrderDeviceMapper extends BaseMapper<OrderDevice, Long> {
             Integer pageSize = (Integer) param.get("pageSize");
 
             StringBuilder builder = new StringBuilder("");
-            builder.append(" select ").append(getAllColumnSql(OrderDevice.class, "a"));
-            builder.append(" from ").append(getTableName(OrderDevice.class)).append(" a ");
+            builder.append(" select ").append(PersistUtil.getAllColumnSql(OrderDevice.class, "a"));
+            builder.append(" from ").append(PersistUtil.getTableName(OrderDevice.class)).append(" a ");
             builder.append(" where a.order_id = #{orderId} ");
             builder.append(" order by a.id ");
             if (pageNo != null && pageSize != null) {

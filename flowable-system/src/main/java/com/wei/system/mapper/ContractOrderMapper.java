@@ -2,6 +2,7 @@ package com.wei.system.mapper;
 
 
 import com.wei.system.domain.ContractOrder;
+import com.yuweix.tripod.dao.PersistUtil;
 import com.yuweix.tripod.dao.mybatis.BaseMapper;
 import com.yuweix.tripod.dao.mybatis.provider.AbstractProvider;
 import org.apache.ibatis.annotations.Param;
@@ -29,7 +30,7 @@ public interface ContractOrderMapper extends BaseMapper<ContractOrder, Long> {
         public String queryContractOrderCount(Map<String, Object> param) {
             StringBuilder builder = new StringBuilder("");
             builder.append(" select count(a.id) as cnt ");
-            builder.append(" from ").append(getTableName(ContractOrder.class)).append(" a ");
+            builder.append(" from ").append(PersistUtil.getTableName(ContractOrder.class)).append(" a ");
             builder.append(" where a.contract_id = #{contractId} ");
             return builder.toString();
         }
@@ -39,8 +40,8 @@ public interface ContractOrderMapper extends BaseMapper<ContractOrder, Long> {
             Integer pageSize = (Integer) param.get("pageSize");
 
             StringBuilder builder = new StringBuilder("");
-            builder.append(" select ").append(getAllColumnSql(ContractOrder.class, "a"));
-            builder.append(" from ").append(getTableName(ContractOrder.class)).append(" a ");
+            builder.append(" select ").append(PersistUtil.getAllColumnSql(ContractOrder.class, "a"));
+            builder.append(" from ").append(PersistUtil.getTableName(ContractOrder.class)).append(" a ");
             builder.append(" where a.contract_id = #{contractId} ");
             builder.append(" order by a.id ");
             if (pageNo != null && pageSize != null) {
@@ -51,8 +52,8 @@ public interface ContractOrderMapper extends BaseMapper<ContractOrder, Long> {
 
         public String findContractOrderByOrderId(Map<String, Object> param) {
             StringBuilder builder = new StringBuilder("");
-            builder.append(" select ").append(getAllColumnSql(ContractOrder.class, "a"));
-            builder.append(" from ").append(getTableName(ContractOrder.class)).append(" a ");
+            builder.append(" select ").append(PersistUtil.getAllColumnSql(ContractOrder.class, "a"));
+            builder.append(" from ").append(PersistUtil.getTableName(ContractOrder.class)).append(" a ");
             builder.append(" where a.order_id = #{orderId} ");
             return builder.toString();
         }

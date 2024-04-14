@@ -2,6 +2,7 @@ package com.wei.system.mapper;
 
 
 import com.wei.system.domain.ContractAttach;
+import com.yuweix.tripod.dao.PersistUtil;
 import com.yuweix.tripod.dao.mybatis.BaseMapper;
 import com.yuweix.tripod.dao.mybatis.provider.AbstractProvider;
 import org.apache.ibatis.annotations.Param;
@@ -32,7 +33,7 @@ public interface ContractAttachMapper extends BaseMapper<ContractAttach, Long> {
             Byte type = (Byte) param.get("type");
             StringBuilder builder = new StringBuilder("");
             builder.append(" select count(a.id) as cnt ");
-            builder.append(" from ").append(getTableName(ContractAttach.class)).append(" a ");
+            builder.append(" from ").append(PersistUtil.getTableName(ContractAttach.class)).append(" a ");
             builder.append(" where a.contract_id = #{contractId} ");
             if (attachUrl != null && !"".equals(attachUrl.trim())) {
                 param.put("attachUrl", attachUrl.trim());
@@ -52,8 +53,8 @@ public interface ContractAttachMapper extends BaseMapper<ContractAttach, Long> {
             Integer pageSize = (Integer) param.get("pageSize");
 
             StringBuilder builder = new StringBuilder("");
-            builder.append(" select ").append(getAllColumnSql(ContractAttach.class, "a"));
-            builder.append(" from ").append(getTableName(ContractAttach.class)).append(" a ");
+            builder.append(" select ").append(PersistUtil.getAllColumnSql(ContractAttach.class, "a"));
+            builder.append(" from ").append(PersistUtil.getTableName(ContractAttach.class)).append(" a ");
             builder.append(" where a.contract_id = #{contractId} ");
             if (attachUrl != null && !"".equals(attachUrl.trim())) {
                 param.put("attachUrl", attachUrl.trim());

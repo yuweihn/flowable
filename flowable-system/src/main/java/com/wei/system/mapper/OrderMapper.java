@@ -3,6 +3,7 @@ package com.wei.system.mapper;
 
 import com.wei.system.domain.ContractOrder;
 import com.wei.system.domain.Order;
+import com.yuweix.tripod.dao.PersistUtil;
 import com.yuweix.tripod.dao.mybatis.BaseMapper;
 import com.yuweix.tripod.dao.mybatis.provider.AbstractProvider;
 import org.apache.ibatis.annotations.Param;
@@ -46,8 +47,8 @@ public interface OrderMapper extends BaseMapper<Order, Long> {
     class Provider extends AbstractProvider {
         public String queryOrderByProcInsId(Map<String, Object> param) {
             StringBuilder builder = new StringBuilder("");
-            builder.append(" select ").append(getAllColumnSql(Order.class, "a"));
-            builder.append(" from ").append(getTableName(Order.class)).append(" a ");
+            builder.append(" select ").append(PersistUtil.getAllColumnSql(Order.class, "a"));
+            builder.append(" from ").append(PersistUtil.getTableName(Order.class)).append(" a ");
             builder.append(" where a.proc_ins_id = #{procInsId} ");
             return builder.toString();
         }
@@ -62,7 +63,7 @@ public interface OrderMapper extends BaseMapper<Order, Long> {
 
             StringBuilder builder = new StringBuilder("");
             builder.append(" select count(a.id) as cnt ");
-            builder.append(" from ").append(getTableName(Order.class)).append(" a ");
+            builder.append(" from ").append(PersistUtil.getTableName(Order.class)).append(" a ");
             builder.append(" where 1 = 1 ");
             if (customerNo != null && !"".equals(customerNo.trim())) {
                 param.put("customerNo", customerNo.trim());
@@ -100,8 +101,8 @@ public interface OrderMapper extends BaseMapper<Order, Long> {
             Integer pageSize = (Integer) param.get("pageSize");
 
             StringBuilder builder = new StringBuilder("");
-            builder.append(" select ").append(getAllColumnSql(Order.class, "a"));
-            builder.append(" from ").append(getTableName(Order.class)).append(" a ");
+            builder.append(" select ").append(PersistUtil.getAllColumnSql(Order.class, "a"));
+            builder.append(" from ").append(PersistUtil.getTableName(Order.class)).append(" a ");
             builder.append(" where 1 = 1 ");
             if (customerNo != null && !"".equals(customerNo.trim())) {
                 param.put("customerNo", customerNo.trim());
@@ -138,14 +139,14 @@ public interface OrderMapper extends BaseMapper<Order, Long> {
             Integer pageSize = (Integer) param.get("pageSize");
 
             StringBuilder builder = new StringBuilder("");
-            builder.append(" select distinct ").append(getAllColumnSql(Order.class, "a"));
-            builder.append(" from ").append(getTableName(Order.class)).append(" a ");
+            builder.append(" select distinct ").append(PersistUtil.getAllColumnSql(Order.class, "a"));
+            builder.append(" from ").append(PersistUtil.getTableName(Order.class)).append(" a ");
             builder.append(" where a.customer_no = #{customerNo} ");
             if (title != null && !"".equals(title.trim())) {
                 param.put("title", "%" + title.trim() + "%");
                 builder.append(" and a.title like #{title} ");
             }
-            builder.append(" and not exists (select b.id from ").append(getTableName(ContractOrder.class)).append(" b where b.order_id = a.id) ");
+            builder.append(" and not exists (select b.id from ").append(PersistUtil.getTableName(ContractOrder.class)).append(" b where b.order_id = a.id) ");
             builder.append(" order by a.id ");
             if (pageNo != null && pageSize != null) {
                 builder.append(" limit ").append((pageNo - 1) * pageSize).append(", ").append(pageSize);
@@ -160,9 +161,9 @@ public interface OrderMapper extends BaseMapper<Order, Long> {
             Integer pageSize = (Integer) param.get("pageSize");
 
             StringBuilder builder = new StringBuilder("");
-            builder.append(" select distinct ").append(getAllColumnSql(Order.class, "b"));
-            builder.append(" from ").append(getTableName(ContractOrder.class)).append(" a ");
-            builder.append(" inner join ").append(getTableName(Order.class)).append(" b on a.order_id = b.id ");
+            builder.append(" select distinct ").append(PersistUtil.getAllColumnSql(Order.class, "b"));
+            builder.append(" from ").append(PersistUtil.getTableName(ContractOrder.class)).append(" a ");
+            builder.append(" inner join ").append(PersistUtil.getTableName(Order.class)).append(" b on a.order_id = b.id ");
             builder.append(" where a.contract_id = #{contractId} ");
             if (title != null && !"".equals(title.trim())) {
                 param.put("title", "%" + title.trim() + "%");

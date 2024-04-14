@@ -2,6 +2,7 @@ package com.wei.system.mapper;
 
 
 import com.wei.system.domain.SysCustomer;
+import com.yuweix.tripod.dao.PersistUtil;
 import com.yuweix.tripod.dao.mybatis.BaseMapper;
 import com.yuweix.tripod.dao.mybatis.provider.AbstractProvider;
 import org.apache.ibatis.annotations.Param;
@@ -32,8 +33,8 @@ public interface SysCustomerMapper extends BaseMapper<SysCustomer, Long> {
     class Provider extends AbstractProvider {
         public String getByCustomerNo(Map<String, Object> param) {
             StringBuilder builder = new StringBuilder("");
-            builder.append(" select ").append(getAllColumnSql(SysCustomer.class, "a"));
-            builder.append(" from ").append(getTableName(SysCustomer.class)).append(" a ");
+            builder.append(" select ").append(PersistUtil.getAllColumnSql(SysCustomer.class, "a"));
+            builder.append(" from ").append(PersistUtil.getTableName(SysCustomer.class)).append(" a ");
             builder.append(" where a.customer_no = #{customerNo} ");
             return builder.toString();
         }
@@ -48,7 +49,7 @@ public interface SysCustomerMapper extends BaseMapper<SysCustomer, Long> {
 
             StringBuilder builder = new StringBuilder("");
             builder.append(" select count(a.id) as cnt ");
-            builder.append(" from ").append(getTableName(SysCustomer.class)).append(" a ");
+            builder.append(" from ").append(PersistUtil.getTableName(SysCustomer.class)).append(" a ");
             builder.append(" where 1 = 1 ");
             if (id != null) {
                 builder.append(" and a.id = #{id} ");
@@ -85,8 +86,8 @@ public interface SysCustomerMapper extends BaseMapper<SysCustomer, Long> {
             int pageSize = (int) param.get("pageSize");
 
             StringBuilder builder = new StringBuilder("");
-            builder.append(" select ").append(getAllColumnSql(SysCustomer.class, "a"));
-            builder.append(" from ").append(getTableName(SysCustomer.class)).append(" a ");
+            builder.append(" select ").append(PersistUtil.getAllColumnSql(SysCustomer.class, "a"));
+            builder.append(" from ").append(PersistUtil.getTableName(SysCustomer.class)).append(" a ");
             builder.append(" where 1 = 1 ");
             if (id != null) {
                 builder.append(" and a.id = #{id} ");

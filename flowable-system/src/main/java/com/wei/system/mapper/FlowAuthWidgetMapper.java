@@ -2,6 +2,7 @@ package com.wei.system.mapper;
 
 
 import com.wei.system.domain.FlowAuthWidget;
+import com.yuweix.tripod.dao.PersistUtil;
 import com.yuweix.tripod.dao.mybatis.BaseMapper;
 import com.yuweix.tripod.dao.mybatis.provider.AbstractProvider;
 import org.apache.ibatis.annotations.Param;
@@ -29,7 +30,7 @@ public interface FlowAuthWidgetMapper extends BaseMapper<FlowAuthWidget, Long> {
         public String queryWidgetCount(Map<String, Object> param) {
             StringBuilder builder = new StringBuilder("");
             builder.append(" select count(a.id) as cnt ");
-            builder.append(" from ").append(getTableName(FlowAuthWidget.class)).append(" a ");
+            builder.append(" from ").append(PersistUtil.getTableName(FlowAuthWidget.class)).append(" a ");
             builder.append(" where a.proc_category = #{procCategory} ");
             return builder.toString();
         }
@@ -39,8 +40,8 @@ public interface FlowAuthWidgetMapper extends BaseMapper<FlowAuthWidget, Long> {
             Integer pageSize = (Integer) param.get("pageSize");
 
             StringBuilder builder = new StringBuilder("");
-            builder.append(" select ").append(getAllColumnSql(FlowAuthWidget.class, "a"));
-            builder.append(" from ").append(getTableName(FlowAuthWidget.class)).append(" a ");
+            builder.append(" select ").append(PersistUtil.getAllColumnSql(FlowAuthWidget.class, "a"));
+            builder.append(" from ").append(PersistUtil.getTableName(FlowAuthWidget.class)).append(" a ");
             builder.append(" where a.proc_category = #{procCategory} ");
             builder.append(" order by a.id desc ");
             if (pageNo != null && pageSize != null) {
@@ -51,8 +52,8 @@ public interface FlowAuthWidgetMapper extends BaseMapper<FlowAuthWidget, Long> {
 
         public String findWidget(Map<String, Object> param) {
             StringBuilder builder = new StringBuilder("");
-            builder.append(" select ").append(getAllColumnSql(FlowAuthWidget.class, "a"));
-            builder.append(" from ").append(getTableName(FlowAuthWidget.class)).append(" a ");
+            builder.append(" select ").append(PersistUtil.getAllColumnSql(FlowAuthWidget.class, "a"));
+            builder.append(" from ").append(PersistUtil.getTableName(FlowAuthWidget.class)).append(" a ");
             builder.append(" where a.proc_category = #{procCategory} and a.widget_code = #{widgetCode} ");
             return builder.toString();
         }
